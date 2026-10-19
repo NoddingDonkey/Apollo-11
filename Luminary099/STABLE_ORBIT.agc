@@ -1,35 +1,48 @@
-# Copyright:	Public domain.
-# Filename:	STABLE_ORBIT.agc
-# Purpose: 	Part of the source code for Luminary 1A build 099.
-#		It is part of the source code for the Lunar Module's (LM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:	yaYUL
-# Contact:	Ron Burkey <info@sandroid.org>.
-# Website:	www.ibiblio.org/apollo.
-# Pages:	723-730
-# Mod history:	2009-05-19 RSB	Adapted from the corresponding
-#				Colossus249 file (there being no corresponding
-#				Luminary131 source-code file), using page
-#				images from Luminary 1A.
-#		2009-06-07 RSB	Eliminated an extraneous instruction.
-#		2011-01-06 JL	Fixed pseudo-label indentation.
-#
-# This source code has been transcribed or otherwise adapted from
-# digitized images of a hardcopy from the MIT Museum.  The digitization
-# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-# the Museum.  Many thanks to both.  The images (with suitable reduction
-# in storage size and consequent reduction in image quality as well) are
-# available online at www.ibiblio.org/apollo.  If for some reason you
-# find that the images are illegible, contact me at info@sandroid.org
-# about getting access to the (much) higher-quality images which Paul
-# actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-#	16:27 JULY 14, 1969
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	STABLE_ORBIT_-_P38-P39.agc
+## Purpose: 	Part of the source code for Luminary 1A build 099.
+##		It is part of the source code for the Lunar Module's (LM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:	yaYUL
+## Contact:	Ron Burkey <info@sandroid.org>.
+## Website:	www.ibiblio.org/apollo.
+## Pages:	723-730
+## Mod history:	2009-05-19 RSB	Adapted from the corresponding 
+##				Colossus249 file (there being no corresponding
+##				Luminary131 source-code file), using page 
+##				images from Luminary 1A.
+##		2009-06-07 RSB	Eliminated an extraneous instruction.
+##		2011-01-06 JL	Fixed pseudo-label indentation.
+##		2016-12-13 RSB	GOTOP00H -> GOTOPOOH
+##		2016-12-15 RSB	Proofed text comments with octopus/ProoferComments
+##				and corrected the errors found.
+##		2017-01-28 RSB	Back-ported a comment-text fix from proofing
+##				of Luminary 69.  Also, changed the filename
+##				(from STABLE_ORBIT.agc) so as to agree with 
+##				the other AGC versions having a corresponding
+##				log section (making it easier to perform diffs 
+##				between versions), and to agree with what it 
+##				says in ASSEMBLY AND OPERATION INFORMATION.
+##		2017-03-17 RSB	Comment-text fixes identified in diff'ing
+##				Luminary 99 vs Comanche 55.
 
-# Page 723
+## This source code has been transcribed or otherwise adapted from
+## digitized images of a hardcopy from the MIT Museum.  The digitization
+## was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+## the Museum.  Many thanks to both.  The images (with suitable reduction
+## in storage size and consequent reduction in image quality as well) are
+## available online at www.ibiblio.org/apollo.  If for some reason you
+## find that the images are illegible, contact me at info@sandroid.org
+## about getting access to the (much) higher-quality images which Paul
+## actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##	Assemble revision 001 of AGC program LMY99 by NASA 2021112-61
+##	16:27 JULY 14, 1969 
+
+## Page 723
 # STABLE ORBIT RENDEZVOUS PROGRAMS (P38 AND P78)
 #
 # MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
@@ -58,7 +71,7 @@
 #
 #		(A)  TIG	TIME OF SOI MANEUVER
 #		(B)  CENTANG	ORBITAL CENTRAL ANGLE OF THE PASSIVE VEHICLE
-#				DURING THE TRANSFER FROM TIG TO TIME OF INTERCEPT
+#				DURING TRANSFER FROM TIG TO TIME OF INTERCEPT
 #		(C)  DELTAR	THE DESIRED SEPARATION OF THE TWO VEHICLES
 #				SPECIFIED AS A DISTANCE ALONG THE PASSIVE VEHICLE
 #				ORBIT
@@ -80,17 +93,17 @@
 #	(1)  TRKMKCNT	NUMBER OF MARKS
 #	(2)  TTOGO	TIME TO GO
 #	(3)  +MGA	MIDDLE GIMBAL ANGLE
-# Page 724
+## Page 724
 #	(4)  DSPTEM1	TIME OF INTERCEPT OF PASSIVE VEHICLE ORBIT
 #			(FOR SOI ONLY)
 #	(5)  POSTTPI	PERIGEE ALTITUDE OF ACTIVE VEHICLE ORBIT AFTER
 #			THE SOI (SOR) MANEUVER
 #	(6)  DELVTPI	MAGNITUDE OF DELTA V AT SOI (SOR) TIME
 #	(7)  DELVTPF	MAGNITUDE OF DELTA V AT INTERCEPT TIME
-#	(8)  DELVLVC	DELTA VELOCITY AT SOI (AND SOR) - LOCAL VERTICAL
+#	(8)  DELVLVC 	DELTA VELOCITY AT SOI (AND SOR) - LOCAL VERTICAL
 #			COORDINATES
 #
-# SUBROUTINE USED
+# SUBROUTINES USED
 #
 #	AVFLAGA
 #	AVFLAGP
@@ -108,10 +121,10 @@
 		BANK	04
 		SETLOC	STBLEORB
 		BANK
-
+		
 		EBANK=	SUBEXIT
 		COUNT*	$$/P3879
-
+		
 P38		TC	BANKCALL
 		CADR	AVFLAGA		# THIS VEHICLE ACTIVE
 		TC	+3
@@ -131,7 +144,7 @@ P78		TC	BANKCALL
 		TCF	-5		# RECYCLE
 		CAF	THREE		# IMMEDIATE RETURN - BLANK R1, R2
 		TCR	BLANKET
-# Page 725
+## Page 725		
 		TCF	ENDOFJOB
 		CAF	FIVE
 		TS	OPTION1
@@ -154,7 +167,7 @@ P78		TC	BANKCALL
 			TINT
 		STORE	TINTSOI		# STORE FOR SOR PHASE
 		CLRGO
-			OPTNSW		# OPTNSW: ON = SOI, OFF = SOR
+			OPTNSW		# OPTNSW; ON = SOI, OFF = SOR
 			JUNCTN1
 OPTN1		SET	CLEAR		# SOI
 			OPTNSW
@@ -182,7 +195,7 @@ OPTN1		SET	CLEAR		# SOI
 		TC	VNDSPLY
 		TC	INTPRET
 JUNCTN1		CLEAR	CALL
-# Page 726
+## Page 726
 			P39/79SW
 			SELECTMU	# SELECT MU, CLEAR FINALFLG, GO TO VN1645
 RECYCLE		CALL
@@ -213,9 +226,10 @@ JUNCTN2		DLOAD	DSU
 			TINT
 			DELTTIME
 		STORE	TARGTIME	# TT = TI - DELTA T
-
+		
 # .... MAINRTNE ....
-# SUBROUTINES USED:
+#
+# SUBROUTINES USED
 #
 #	S3435.25
 #	PERIAPO1
@@ -234,7 +248,7 @@ MAINRTNE	STCALL	TDEC1		# PRECISION UPDATE PASSIVE VEHICLE TO
 		SSP	VLOAD
 			SUBEXIT
 			TEST3979
-# Page 727
+## Page 727			
 			RATT
 		CALL
 			S3435.25
@@ -280,19 +294,19 @@ DSPLY81		CAF	V06N81SR	# DISPLAY DELTA V (LV)
 			P39/79SW
 			P39/P79B
 			RECYCLE
-
+			
 # STABLE ORBIT MIDCOURSE PROGRAM (P39 AND P79)
 #
 # MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
 # MOD BY RUDNICKI.S	DATE 25JAN68
 #
-# Page 728
+## Page 728
 # FUNCTIONAL DESCRIPTION
 #
 #	P39 AND P79 CALCULATE THE REQUIRED DELTA V AND OTHER INITIAL
 #	CONDITIONS REQUIRED BY THE AGC TO MAKE A MIDCOURSE CORRECTION
 #	MANEUVER AFTER COMPLETING THE SOI MANEUVER BUT BEFORE MAKING
-#	THE SOR MANEUVER.
+#	THE SOR MANEUVER
 #
 # CALLING SEQUENCE
 #
@@ -309,7 +323,7 @@ DSPLY81		CAF	V06N81SR	# DISPLAY DELTA V (LV)
 #
 # OUTPUT
 #
-#	(1)  TRKMKCNT	NUMBER OF MARKS.
+#	(1)  TRKMKCNT	NUMBER OF MARKS
 #	(2)  TTOGO	TIME TO GO
 #	(3)  +MGA	MIDDLE GIMBAL ANGLE
 #	(4)  DELVLVC	DELTA VELOCITY AT MID - LOCAL VERTICAL COORDINATES
@@ -337,7 +351,7 @@ P39/P79A	DXCH	KT		# TIME TO PREPARE FOR BURN
 		TC	BANKCALL
 		CADR	P20FLGON	# SET UPDATFLG, TRACKFLG
 		TC	INTPRET
-# Page 729
+## Page 729		
 		SET	CALL
 			P39/79SW
 			SELECTMU	# SELECT MU, CLEAR FINALFLG, GO TO VN1645
@@ -352,8 +366,9 @@ P39/P79B	RTB	DAD
 		DLOAD	GOTO
 			TARGTIME
 			MAINRTNE	# CALCULATE DELTA V AND DELTA V (LV)
-
+			
 # .... PREC/TT ....
+#
 # SUBROUTINES USED
 #
 #	PRECSET
@@ -385,12 +400,13 @@ PREC/TT		STQ	DLOAD
 		DLOAD	GOTO
 			T
 			RTRN
-
+			
 # .... INTRPVP ....
+#
 # SUBROUTINES USED
 #
 #	CSMPREC
-# Page 730
+## Page 730
 #	LEMPREC
 
 INTRPVP		STQ	BOFF		# PRECISION UPDATE PASSIVE VEHICLE TO
@@ -405,8 +421,9 @@ OTHERV		CALL
 			LEMPREC
 		GOTO
 			RTRN
-
+			
 # .... VNDSPLY ....
+#
 # SUBROUTINES USED
 #
 #	BANKCALL
@@ -431,6 +448,7 @@ V06N58SR	VN	0658
 V06N81SR	VN	0681
 DECTWO		OCT	2
 
-# *** END OF KISSING  .050 ***
+
+
 
 

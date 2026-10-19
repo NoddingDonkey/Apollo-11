@@ -1,35 +1,36 @@
-# Copyright:	Public domain.
-# Filename:	TAGS_FOR_RELATIVE_SETLOC.agc
-# Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
-#		It is part of the source code for the Command Module's (CM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:	yaYUL
-# Contact:	Ron Burkey <info@sandroid.org>.
-# Website:	www.ibiblio.org/apollo.
-# Mod history:	2009-05-05 RSB	Adapted from the Colossus249/ file of the
-#				same name, using Comanche055 page images.
-#		2009-05-20 RSB	Corrected R32 -> R31.
-#
-# This source code has been transcribed or otherwise adapted from digitized
-# images of a hardcopy from the MIT Museum.  The digitization was performed
-# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
-# thanks to both.  The images (with suitable reduction in storage size and
-# consequent reduction in image quality as well) are available online at
-# www.ibiblio.org/apollo.  If for some reason you find that the images are
-# illegible, contact me at info@sandroid.org about getting access to the
-# (much) higher-quality images which Paul actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#	Assemble revision 055 of AGC program Comanche by NASA
-#	2021113-051.  10:28 APR. 1, 1969
-#
-#	This AGC program shall also be referred to as
-#			Colossus 2A
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	TAGS_FOR_RELATIVE_SETLOC.agc
+## Purpose:	Part of the source code for Colossus 2A, AKA Comanche 055.
+##		It is part of the source code for the Command Module's (CM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:	yaYUL
+## Contact:	Ron Burkey <info@sandroid.org>.
+## Website:	www.ibiblio.org/apollo.
+## Mod history:	2009-05-05 RSB	Adapted from the Colossus249/ file of the 
+##				same name, using Comanche055 page images.
+##		2009-05-20 RSB	Corrected R32 -> R31.
+##		2016-12-09 RSB	Proofed comments with octopus/ProoferComments
+##				and fixed the errors found.
+##
+## This source code has been transcribed or otherwise adapted from digitized
+## images of a hardcopy from the MIT Museum.  The digitization was performed
+## by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+## thanks to both.  The images (with suitable reduction in storage size and
+## consequent reduction in image quality as well) are available online at
+## www.ibiblio.org/apollo.  If for some reason you find that the images are
+## illegible, contact me at info@sandroid.org about getting access to the 
+## (much) higher-quality images which Paul actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##	Assemble revision 055 of AGC program Comanche by NASA
+##	2021113-051.  10:28 APR. 1, 1969  
+##
+##	This AGC program shall also be referred to as
+##			Colossus 2A
 
-# Page 27
-# TAGS FOR RELATIVE SETLOC AND BLANK BANK CARDS
-
+## Page 27
 FIXED		MEMORY	120000 - 167777
 		COUNT	BANKSUM
 
@@ -49,22 +50,22 @@ P30SUBS		EQUALS
 STOPRAT		EQUALS
 P23S		EQUALS
 		BNKSUM	02
-
+		
 		BLOCK	03
 FFTAG5		EQUALS
 FFTAG6		EQUALS
 DAPS9		EQUALS
 FFTAG13		EQUALS
 		BNKSUM	03
-
+		
 		BANK	00
 DLAYJOB		EQUALS
 		BNKSUM	00
-
+		
 		BANK	01
 RESTART		EQUALS
 		BNKSUM	01
-
+		
 		BANK	4
 VERB37		EQUALS
 CONICS1		EQUALS
@@ -73,20 +74,21 @@ CSI/CDH1	EQUALS
 INTPRET2	EQUALS
 IMUCAL1		EQUALS
 
-# Page 28
+## Page 28
 
 STBLEORB	EQUALS
 E/PROG		EQUALS
 MIDDGIM		EQUALS
-		BNKSUM	04
 
+		BNKSUM	04
+		
 		BANK	5
 FRANDRES	EQUALS
 DOWNTELM	EQUALS
 DAPMASS		EQUALS
 CDHTAG		EQUALS
 		BNKSUM	05
-
+		
 # MODULE 2 CONTAINS BANKS 6 THROUGH 13
 
 		BANK	6
@@ -95,7 +97,7 @@ T4RUP		EQUALS
 IMUCAL2		EQUALS
 CSIPROG		EQUALS
 		BNKSUM	06
-
+	
 		BANK	7
 SXTMARKE	EQUALS
 R02		EQUALS
@@ -104,7 +106,7 @@ XANG		EQUALS
 KEYRUPT		EQUALS
 CSIPROG6	EQUALS
 		BNKSUM	07
-
+		
 		BANK	10
 DISPLAYS	EQUALS
 PHASETAB	EQUALS
@@ -114,26 +116,26 @@ P60S4		EQUALS
 OPTDRV		EQUALS
 CSIPROG8	EQUALS
 		BNKSUM	10
-
+		
 		BANK	11
 ORBITAL		EQUALS
 ORBITAL1	EQUALS			# CONSTANTS
 
-# Page 29
+## Page 29
 
 INTVEL		EQUALS
 S52/2		EQUALS
 CSIPROG5	EQUALS
 INTINIT1	EQUALS
 		BNKSUM	11
-
+		
 		BANK	12
 CONICS		EQUALS
 CSIPROG2	EQUALS
 CSI/CDH2	EQUALS
 MODCHG2		EQUALS
 		BNKSUM	12
-
+		
 		BANK	13
 P76LOC		EQUALS
 LATLONG		EQUALS
@@ -146,8 +148,8 @@ MODCHG3		EQUALS
 		BNKSUM	13
 
 # SPACER
-
-# MODULE 3 CONTAINS BANKS 14 THROUGH 21
+	
+#          MODULE 3 CONTAINS BANKS 14 THROUGH 21
 
 		BANK 	14
 STARTAB		EQUALS
@@ -155,32 +157,32 @@ RT53		EQUALS
 P50S1		EQUALS
 MEASINC2	EQUALS
 CSI/CDH3	EQUALS
-		BNKSUM	14
+		BNKSUM	14	
 
 		BANK	15
 P50S		EQUALS
 ETRYDAP		EQUALS
 S52/3		EQUALS
 		BNKSUM	15
-
+		
 		BANK	16
 P40S1		EQUALS
 
-# Page 30
+## Page 30
 
 DAPROLL		EQUALS
 P50S2		EQUALS
 P23S1		EQUALS
 RTE2		EQUALS
 		BNKSUM	16
-
+		
 		BANK	17
 DAPS4		EQUALS
 DAPS5		EQUALS
 DAPS7		EQUALS
 P50S3		EQUALS
 		BNKSUM	17
-
+		
 		BANK	20
 DAPS6		EQUALS
 DAPS1		EQUALS
@@ -189,7 +191,7 @@ MANUSTUF	EQUALS
 R36CM		EQUALS
 VAC5LOC		EQUALS
 		BNKSUM	20
-
+		
 		BANK	21
 DAPS3		EQUALS
 MYSUBS		EQUALS
@@ -209,7 +211,7 @@ KALCMON1	EQUALS
 CSIPROG3	EQUALS
 		BNKSUM	22
 
-# Page 31
+## Page 31
 
 		BANK	23
 P20S2		EQUALS
@@ -223,18 +225,18 @@ R30LOC		EQUALS
 P11FOUR		EQUALS
 CSIPROG4	EQUALS
 		BNKSUM	23
-
+		
 		BANK	24
 LOADDAP		EQUALS
 P40S		EQUALS
 CSIPROG7	EQUALS
 		BNKSUM	24
-
+		
 		BANK	25
 REENTRY		EQUALS
 CDHTAG1		EQUALS
 		BNKSUM	25
-
+		
 		BANK	26
 INTPRET1	EQUALS
 REENTRY1	EQUALS
@@ -247,14 +249,14 @@ EPHEM		EQUALS
 P05P06		EQUALS
 26P50S		EQUALS
 		BNKSUM	26
-
+		
 		BANK	27
 TOF-FF		EQUALS
 TOF-FF1		EQUALS
 MANUVER		EQUALS
 MANUVER1	EQUALS
 
-# Page 32
+## Page 32
 
 VECPT		EQUALS
 UPDATE1		EQUALS
@@ -269,14 +271,14 @@ P40S2		EQUALS
 		BANK	30
 IMUSUPER	EQUALS
 LOWSUPER	EQUALS
-FCSTART		EQUALS			# STANDARD LOCATION FOR THIS. (FOR EXTV8)
+FCSTART		EQUALS			# STANDARD LOCATION FOR THIS. (FOR EXTVB)
 LOPC		EQUALS
 P20S1		EQUALS
 P20S6		EQUALS
 P40S3		EQUALS
 R35A		EQUALS
 		BNKSUM	30
-
+		
 		BANK	31
 R35		EQUALS
 RT23		EQUALS
@@ -288,29 +290,29 @@ R31		EQUALS
 P22S		EQUALS
 RTE3		EQUALS
 		BNKSUM	31
-
+		
 		BANK	32
 MSGSCAN1	EQUALS
 RTE		EQUALS
 DELRSPL1	EQUALS
 IMUCAL3		EQUALS
 		BNKSUM	32
-
+		
 		BANK	33
 TESTLEAD	EQUALS
 
-# Page 33
+## Page 33
 
 IMUCAL		EQUALS
 		BNKSUM	33
-
+		
 		BANK	34
 P11ONE		EQUALS
 P20S3		EQUALS
 P20S4		EQUALS
 RTECON		EQUALS
 		BNKSUM	34
-
+		
 		BANK	35
 RTECON1		EQUALS
 CSI/CDH		EQUALS
@@ -320,7 +322,7 @@ P17S1		EQUALS
 MEASINC3	EQUALS
 INTINIT2	EQUALS
 		BNKSUM	35
-
+		
 # MODULE 6 CONTAINS BANKS 36 THROUGH 43
 
 		BANK	36
@@ -330,7 +332,7 @@ P17S		EQUALS
 RTE1		EQUALS
 S3435LOC	EQUALS
 		BNKSUM	36
-
+		
 		BANK	37
 P20S		EQUALS
 BODYATT		EQUALS
@@ -339,39 +341,39 @@ SERVICES	EQUALS
 P11TWO		EQUALS
 CDHTAG3		EQUALS
 		BNKSUM	37
-
+		
 		BANK	40
 PINSUPER	EQUALS
 
-# Page 34
+## Page 34
 
 SELFSUPR	EQUALS
 PINBALL1	EQUALS
 R36CM1		EQUALS
 		BNKSUM	40
-
+		
 		BANK	41
 PINBALL2	EQUALS
 R36LM		EQUALS
 		BNKSUM	41
-
+		
 		BANK	42
-SBAND		EQUALS
+SBAND		EQUALS	
 PINBALL3	EQUALS
 EXTVBS		EQUALS
 R36LM1		EQUALS
 		BNKSUM	42
-
+		
 		BANK	43
 SELFCHEC	EQUALS
 EXTVERBS	EQUALS
 		BNKSUM	43
-
+		
 HI6ZEROS	EQUALS	ZEROVECS		# ZERO VECTOR ALWAYS IN HIGH MEMORY
 LO6ZEROS	EQUALS	ZEROVEC			# ZERO VECTOR ALWAYS IN LOW MEMORY
 HIDPHALF	EQUALS	UNITX
 LODPHALF	EQUALS	XUNIT
-HIDP1/4		EQUALS	DP1/4TH
+HIDP1/4		EQUALS	DP1/4TH	
 LODP1/4		EQUALS	D1/4			# 2DEC .25
 HIUNITX		EQUALS	UNITX
 HIUNITY		EQUALS	UNITY
@@ -380,6 +382,7 @@ LOUNITX		EQUALS	XUNIT			# 2DEC .5
 LOUNITY		EQUALS	YUNIT			# 2DEC 0
 LOUNITZ		EQUALS	ZUNIT			# 2DEC 0
 3/4LOWDP	EQUALS	3/4			# 2DEC 3.0 B-2
+
 		SBANK=	LOWSUPER
 
 # ROPE SPECIFIC ASSIGNS OBVIATING NEED TO CHECK COMPUTER FLAG IN DETVRUZVING INTEGRATION AREA ENTRIES
@@ -389,7 +392,7 @@ ATOPOTH		EQUALS	ATOPLEM
 ATOPTHIS	EQUALS	ATOPCSM
 MOONTHIS	EQUALS	CMOONFLG
 
-# Page 35
+## Page 35
 
 MOONOTH		EQUALS	LMOONFLG
 MOVATHIS	EQUALS	MOVEACSM
@@ -399,11 +402,11 @@ THISAXIS	=	UNITX
 ERASID		EQUALS	LOW10			# DOWNLINK ERASABLE DUMP ID
 DELAYNUM	EQUALS	THREE
 
-#***************************************************************************************************************
+#****************************************************************************************************************
 
-#   THE FOLLOWING ECADRS ARE DEFINED TO FACILITATE EBANK SWITCHING.  THEY ALSO MAKE IT EASIER FOR
+# THE FOLLOWING ECADRS ARE DEFINED TO FACILITATE EBANK SWITCHING.  THEY ALSO MAKE IT EASIER FOR
 # ERASABLE CONTROL TO REARRANGE ERASABLE MEMORY WITHOUT DISRUPTING THE PROGRAMS WHICH SET EBANKS.
-# PRIOR TO ROPE RELEASE FIXED MEMORY CAN BE SAVED BY SETTING EACH EBXXXX =EBANKX (X=4,5,6,7).EBANKX OF COURSE
+# PRIOR TO ROPE RELEASE FIXED MEMORY CAN BE SAVED BY SETTING EACH EBXXXX =EBANKX (X=4,5,6,7).  EBANKX OF COURSE
 # WILL BE THE BANK WHERE THE ERASABLES REFERENCED IN EBXXXX WILL BE STORED.
 
 		BANK	7
@@ -428,8 +431,7 @@ EBQPLACE	ECADR	QPLACES
 		EBANK=	RN1
 EBRN1		ECADR	RN1
 
-#***************************************************************************************************************
+#****************************************************************************************************************
 
-# Page 36
-
-# *** END OF MAIN PROGRAM ***
+## Page 36
+## This page contains only assembler-generated messages, and no source code.

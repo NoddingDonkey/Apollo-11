@@ -1,87 +1,89 @@
-# Copyright:	Public domain.
-# Filename:	GROUND_TRACKING_DETERMINATION_PROGRAM.agc
-# Purpose: 	Part of the source code for Luminary 1A build 099.
-#		It is part of the source code for the Lunar Module's (LM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:	yaYUL
-# Contact:	Ron Burkey <info@sandroid.org>.
-# Website:	www.ibiblio.org/apollo.
-# Pages:	654-657
-# Mod history:	2009-05-18 RSB	Adapted from the corresponding
-#				Luminary131 file, using page
-#				images from Luminary 1A.
-#
-# This source code has been transcribed or otherwise adapted from
-# digitized images of a hardcopy from the MIT Museum.  The digitization
-# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-# the Museum.  Many thanks to both.  The images (with suitable reduction
-# in storage size and consequent reduction in image quality as well) are
-# available online at www.ibiblio.org/apollo.  If for some reason you
-# find that the images are illegible, contact me at info@sandroid.org
-# about getting access to the (much) higher-quality images which Paul
-# actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-#	16:27 JULY 14, 1969
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	GROUND_TRACKING_DETERMINATION_PROGRAM.agc
+## Purpose: 	Part of the source code for Luminary 1A build 099.
+##		It is part of the source code for the Lunar Module's (LM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:	yaYUL
+## Contact:	Ron Burkey <info@sandroid.org>.
+## Website:	www.ibiblio.org/apollo.
+## Pages:	654-657
+## Mod history:	2009-05-18 RSB	Adapted from the corresponding 
+##				Luminary131 file, using page 
+##				images from Luminary 1A.
+##		2016-12-13 RSB	GOTOP00H -> GOTOPOOH
+##		2016-12-14 RSB	Proofed text comments with octopus/ProoferComments
+##				but no errors found.
+##		2017-03-15 RSB	Comment-text fixes identified in 5-way
+##				side-by-side diff of Luminary 69/99/116/131/210.
 
-# Page 654
+## This source code has been transcribed or otherwise adapted from
+## digitized images of a hardcopy from the MIT Museum.  The digitization
+## was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+## the Museum.  Many thanks to both.  The images (with suitable reduction
+## in storage size and consequent reduction in image quality as well) are
+## available online at www.ibiblio.org/apollo.  If for some reason you
+## find that the images are illegible, contact me at info@sandroid.org
+## about getting access to the (much) higher-quality images which Paul
+## actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##	Assemble revision 001 of AGC program LMY99 by NASA 2021112-61
+##	16:27 JULY 14, 1969 
+
+## Page 654
 # GROUND TRACKING DETERMINATION PROGRAM P21
 # PROGRAM DESCRIPTION
-# MOD NO - 1
-# MOD BY - N.M.NEVILLE
-# FUNCTIONAL DECRIPTION-
+#	MOD NO - 1
+#	MOD BY - N. M. NEVILLE
 #
-# TO PROVIDE THE ASTRONAUT DETAILS OF THE LM OR CSM GROUND TRACK WITHOUT
-# THE NEED FOR GROUND COMMUNICATION (REQUESTED BY DSKY).
+# FUNCTIONAL DECRIPTION -
+#	TO PROVIDE THE ASTRONAUT DETAILS OF THE LM OR CSM GROUND TRACK WITHOUT
+#	THE NEED FOR GROUND COMMUNICATION (REQUESTED BY DSKY).
+#
 # CALLING SEQUENCE -
+#	ASTRONAUT REQUEST THROUGH DSKY V37E21E
 #
-# ASTRONAUT REQUEST THROUGH DSKY V37E21E
-# SUBROUTINES CALLED-
+# SUBROUTINES CALLED -
+#	GOPERF4
+#	GOFLASH
+#	THISPREC
+#	OTHPREC
+#	LAT-LONG
 #
-# GOPERF4
-# GOFLASH
-# THISPREC
-# OTHPREC
-# LAT-LONG
-# NORMAL EXIT MODES-
+# NORMAL EXIT MODES -
+#	ASTRONAUT REQUEST TROUGH DSKY TO TERMINATE PROGRAM V34E
 #
-# ASTRONAUT REQUEST TROUGH DSKY TO TERMINATE PROGRAM V34E
-# ALARM OR ABORT EXIT MODES-
+# ALARM OR ABORT EXIT MODES -
+#	NONE
 #
-# NONE
 # OUTPUT -
+#	OCTAL DISPLAY OF OPTION CODE AND VEHICLE WHOSE GROUND TRACK IS TO BE
+#	COMPUTED
+#		OPTION CODE	00002
+#		THIS		00001
+#		OTHER		00002
+#	DECIMAL DISPLAY OF TIME TO BE INTEGRATED TO HOURS, MINUTES, SECONDS
+#	DECIMAL DISPLAY OF LAT,LONG,ALT
 #
-# OCTAL DISPLAY OF OPTION CODE AND VEHICLE WHOSE GROUND TRACK IS TO BE
-# COMPUTED
-#	OPTION CODE	00002
-#	THIS		00001
-#	OTHER		00002
-# DECIMAL DISPLAY OF TIME TO BE INTEGRATED TO HOURS , MINUTES , SECONDS
-# DECIMAL DISPLAY OF LAT,LONG,ALT
 # ERASABLE INITIALIZATION REQUIRED
+#	AX0		2DEC	4.652459653 E-5 RADIANS		%68-69 CONSTANTS"
+#	-AY0		2DEC	2.147535898 E-5 RADIANS
+#	AZ0		2DEC	.7753206164	REVOLUTIONS
+# 	FOR LUNAR ORBITS 504LM VECTOR IS NEEDED
+#	504LM		2DEC	-2.700340600 E-5 RADIANS
+#	504LM _2	2DEC	-7.514128400 E-4 RADIANS
+#	504LM _4	2DEC	_2.553198641 E-4 RADIANS
 #
-# AXO		2DEC	4.652459653 E-5		RADIANS		%68-69 CONSTANTS"
+# 	NONE
 #
-# -AYO		2DEC	2.147535898 E-5		RADIANS
-#
-# AZO		2DEC	.7753206164		REVOLUTIONS
-# FOR LUNAR ORBITS 504LM VECTOR IS NEEDED
-#
-# 504LM		2DEC	-2.700340600 E-5	RADIANS
-#
-# 504LM	_2	2DEC	-7.514128400 E-4	RADIANS
-#
-# 504LM	_4	2DEC	_2.553198641 E-4	RADIANS
-#
-# NONE
 # DEBRIS
-#
-# Page 655
-# CENTRALS-A,Q,L
-# OTHER-THOSE USED BY THE ABOVE LISTED SUBROUTINES
-# SEE LEMPREC,LAT-LONG
+## Page 655
+#	CENTRALS - A,Q,L
+#	OTHER - THOSE USED BY THE ABOVE LISTED SUBROUTINES
+#	SEE LEMPREC, LAT-LONG
+
 		SBANK=	LOWSUPER	# FOR LOW 2CADR'S.
 
 		BANK	33
@@ -91,8 +93,8 @@
 		EBANK=	P21TIME
 		COUNT*	$$/P21
 PROG21		CAF	ONE
-		TS	OPTION2		# ASSUMED VEHICLE IS LM , R2 = 00001
-		CAF	BIT2		#  OPTION 2
+		TS	OPTION2		# ASSUMED VEHICLE IS LM, R2 = 00001
+		CAF	BIT2		# OPTION 2
 		TC	BANKCALL
 		CADR	GOPERF4
 		TC	GOTOPOOH	# TERMINATE
@@ -111,13 +113,13 @@ P21PROG1	CAF	V6N34		# LOAD DESIRED TIME OF LAT-LONG.
 			INTSTALL
 		BON	CLEAR
 			P21FLAG
-			P21CONT		# ON---RECYCLE USING BASE VECTOR
-			VINTFLAG	# OFF--IST PASS CALL BASE VECTOR
+			P21CONT		# ON --- RECYCLE USING BASE VECTOR
+			VINTFLAG	# OFF -- 1ST PASS CALL BASE VECTOR
 		SLOAD	SR1
 			OPTION2
 		BHIZ	SET
-			+2		# ZERO--THIS VEHICLE(LM)
-			VINTFLAG	# ONE--OTHER VEHICLE(CM)
+			+2		# ZERO -- THIS VEHICLE (LM)
+			VINTFLAG	# ONE -- OTHER VEHICLE (CM)
 		CLEAR	CLEAR
 			DIM0FLAG
 			INTYPFLG	# PRECISION
@@ -126,9 +128,9 @@ P21PROG1	CAF	V6N34		# LOAD DESIRED TIME OF LAT-LONG.
 		GOTO			# -AND
 			P21VSAVE	# -SAVE BASE VECTOR
 P21CONT		VLOAD
-			P21BASER	# RECYCLE--INTEG FROM BASE VECTOR
+			P21BASER	# RECYCLE -- INTEG FROM BASE VECTOR
 		STOVL	RCV		# --POS
-# Page 656
+## Page 656		
 			P21BASEV
 		STODL	VCV		# --VEL
 			P21TIME
@@ -138,12 +140,12 @@ P21CONT		VLOAD
 			MOONFLAG
 		SLOAD	BZE
 			P21ORIG
-			+3		# ZERO=EARTH
-		SET			# ---2=MOON
+			+3		# ZERO = EARTH
+		SET			# ---2 = MOON
 			MOONFLAG
  +3		CALL
 			INTEGRVS
-P21VSAVE	DLOAD			# SAVE CURRENT BASEVECTOR
+P21VSAVE	DLOAD			# SAVE CURRENT BASE VECTOR
 			TAT
 		STOVL	P21TIME		# --TIME
 			RATT1
@@ -155,12 +157,12 @@ P21VSAVE	DLOAD			# SAVE CURRENT BASEVECTOR
 		STOVL	P21VEL		# VEL/ FOR N91 DISP
 			RATT
 		UNIT	DOT
-			VATT		#  U(R).V
+			VATT		# U(R).V
 		DDV	ASIN		# U(R).U(V)
 			P21VEL
 		STORE	P21GAM		# SIN-1 U(R).U(V) , -90 TO &90
 		SXA,2	SLOAD
-			P21ORIG		# 0=EARTH
+			P21ORIG		# 0 = EARTH
 			OPTION2
 		SR1	BHIZ
 			+3
@@ -179,7 +181,7 @@ P21DSP		CLEAR	SLOAD		# GENERATE DISPLAY DATA
 			LUNAFLAG
 		VLOAD
 			RATT
-# Page 657
+## Page 657			
 		STODL	ALPHAV
 			TAT
 		CLEAR	CALL
@@ -206,3 +208,4 @@ P21DSP		CLEAR	SLOAD		# GENERATE DISPLAY DATA
 V06N43		VN	00643
 V6N34		VN	00634
 K.01		2DEC	.01
+

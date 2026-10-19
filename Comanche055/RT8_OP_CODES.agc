@@ -1,35 +1,38 @@
-# Copyright:    Public domain.
-# Filename:     RT8_OP_CODES.agc
-# Purpose:      Part of the source code for Comanche, build 055. It
-#               is part of the source code for the Command Module's
-#               (CM) Apollo Guidance Computer (AGC), Apollo 11.
-# Assembler:    yaYUL
-# Reference:    pp. 1508-1516
-# Contact:      Ron Burkey <info@sandroid.org>
-# Website:      http://www.ibiblio.org/apollo.
-# Mod history:  2009-05-07 RSB	Adapted from Colossus249/RT8_OP_CODES.agc
-#				and page images.
-#		2009-05-07 RSB	Oops! Left out the entire last page before.
-#
-# The contents of the "Comanche055" files, in general, are transcribed
-# from scanned documents.
-#
-#       Assemble revision 055 of AGC program Comanche by NASA
-#       2021113-051.  April 1, 1969.
-#
-#       This AGC program shall also be referred to as Colossus 2A
-#
-#       Prepared by
-#                       Massachusetts Institute of Technology
-#                       75 Cambridge Parkway
-#                       Cambridge, Massachusetts
-#
-#       under NASA contract NAS 9-4065.
-#
-# Refer directly to the online document mentioned above for further
-# information.  Please report any errors to info@sandroid.org.
+### FILE="Main.annotation"
+## Copyright:   Public domain.
+## Filename:    RTB_OP_CODES.agc
+## Purpose:     Part of the source code for Comanche, build 055. It
+##              is part of the source code for the Command Module's
+##              (CM) Apollo Guidance Computer (AGC), Apollo 11.
+## Assembler:   yaYUL
+## Reference:   pp. 1508-1516
+## Contact:     Ron Burkey <info@sandroid.org>
+## Website:     http://www.ibiblio.org/apollo.
+## Mod history: 2009-05-07 RSB	Adapted from Colossus249/RTB_OP_CODES.agc
+##				and page images. 
+##		2009-05-07 RSB	Oops! Left out the entire last page before.
+##		2016-12-22 RSB	Proofed comment text using octopus/ProoferComments
+##				and corrected the errors found.
+##
+## The contents of the "Comanche055" files, in general, are transcribed 
+## from scanned documents. 
+##
+##       Assemble revision 055 of AGC program Comanche by NASA
+##       2021113-051.  April 1, 1969.  
+##
+##       This AGC program shall also be referred to as Colossus 2A
+##
+##       Prepared by
+##                       Massachusetts Institute of Technology
+##                       75 Cambridge Parkway
+##                       Cambridge, Massachusetts
+##
+##       under NASA contract NAS 9-4065.
+##
+## Refer directly to the online document mentioned above for further
+## information.  Please report any errors to info@sandroid.org.
 
-# Page 1508
+## Page 1508
 		BANK	22
 		SETLOC	RTBCODES
 		BANK
@@ -59,7 +62,7 @@ CDULOGIC	CCS	MPAC
 		MP	HALF
 		DAS	MPAC
 		TCF	DANZIG		# MODE IS ALREADY AT DOUBLE-PRECISION
-
+		
 # READ THE PIPS INTO MPAC WITHOUT CHANGING THEM:
 
 READPIPS	INHINT
@@ -70,20 +73,19 @@ READPIPS	INHINT
 		CA	PIPAZ
 		RELINT
 		TS	MPAC +5
-
+		
 		CAF	ZERO
 		TS	MPAC +1
 		TS	MPAC +4
 		TS	MPAC +6
-
 VECMODE		TCF	VMODE
 
 # FORCE TP SIGN AGREEMENT IN MPAC:
 
 SGNAGREE	TC	TPAGREE
-
-# Page 1509
-
+		
+## Page 1509
+		
 		TCF	DANZIG
 
 # CONVERT THE DP 1'S COMPLEMENT ANGLE SCALED IN REVOLUTIONS TO A SINGLE PRECISION 2'S COMPLEMENT ANGLE
@@ -134,7 +136,7 @@ TPMODE		CAF	ONE		# MODE IS TP.
 		COM			# THIS WAS REVERSE OF MSU.
 
 		TS	MPAC		# AND SKIP ON OVERFLOW.
-# Page 1510
+## Page 1510
 		TC	Q
 
 		INDEX	A		# OVERFLOW UNCORRECT AND IN MSU.
@@ -142,40 +144,40 @@ TPMODE		CAF	ONE		# MODE IS TP.
 		ADS	MPAC
 		TC	Q
 
-# Page 1511
+## Page 1511
 # SUBROUTINE TO INCREMENT CDUS
 
 INCRCDUS	CAF	LOCTHETA
 		TS	BUF		# PLACE ADRES(THETA) IN BUF.
 		CAE	MPAC		# INCREMENT IN 1S COMPL.
 		TC	CDUINC
-
+		
 		INCR	BUF
 		CAE	MPAC +3
 		TC	CDUINC
-
+		
 		INCR	BUF
 		CAE	MPAC +5
 		TC	CDUINC
-
+		
 		TCF	VECMODE
-
+		
 LOCTHETA	ADRES	THETAD
 
 # THE FOLLOWING ROUTINE INCREMENTS IN 2S COMPLEMENT THE REGISTER WHOSE ADDRESS IS IN BUF BY THE 1S COMPL.
 # QUANTITY FOUND IN TEM2.  THIS MAY BE USED TO INCREMENT DESIRED IMU AND OPTICS CDU ANGLES OR ANY OTHER 2S COMPL.
 # (+0 UNEQUAL TO -0) QUANTITY.  MAY BE CALLED BY BANKCALL/SWCALL.
 
-CDUINC		TS	TEM2		# 1S COMPL.QUANT. ARRIVES IN ACC.  STORE IT
+CDUINC		TS	TEM2		# 1S COMPL. QUANT. ARRIVES IN ACC.  STORE IT
 		INDEX	BUF
-		CCS	0		# CHANGE 2S COMPLE. ANGLE(IN BUF) INTO 1S
+		CCS	0		# CHANGE 2S COMPL. ANGLE (IN BUF) INTO 1S
 		AD	ONE
 		TCF	+4
 		AD	ONE
-		AD	ONE		# OVEFLOW HERE IF 2S COMPL. IS 180 DEG.
+		AD	ONE		# OVERFLOW HERE IF 2S COMPL. IS 180 DEG.
 		COM
 
-		AD	TEM2		# SULT MOVES FROM 2ND TO 3D QUAD.(OR BACK)
+		AD	TEM2		# SULT MOVES FROM 2ND TO 3D QUAD. (OR BACK)
 		CCS	A		# BACK TO 2S COMPL.
 		AD	ONE
 		TCF	+2
@@ -183,14 +185,14 @@ CDUINC		TS	TEM2		# 1S COMPL.QUANT. ARRIVES IN ACC.  STORE IT
 		TS	TEM2		# STORE 14BIT QUANTITY WITH PRESENT SIGN
 		TCF	+4
 		INDEX	A		# SIGN.
-		CAF	LIMITS		# FIX IT,BY ADDING IN 37777 OR 40000
+		CAF	LIMITS		# FIX IT, BY ADDING IN 37777 OR 40000
 		AD	TEM2
 
 		INDEX	BUF
 		TS	0		# STORE NEW ANGLE IN 2S COMPLEMENT.
 		TC	Q
 
-# Page 1512
+## Page 1512
 # RTB TO TORQUE GYROS, EXCEPT FOR THE CALL TO IMUSTALL.  ECADR OF COMMANDS ARRIVES IN X1.
 
 PULSEIMU	INDEX	FIXLOC		# ADDRESS OF GYRO COMMANDS SHOULD BE IN X1
@@ -199,7 +201,7 @@ PULSEIMU	INDEX	FIXLOC		# ADDRESS OF GYRO COMMANDS SHOULD BE IN X1
 		CADR	IMUPULSE
 		TCF	DANZIG
 
-# Page 1513
+## Page 1513
 # EACH ROUTINE TAKES A 3X3 MATRIX STORED IN DOUBLE PRECISION IN A FIXED AREA OF ERASABLE MEMORY AND REPLACES IT
 # WITH THE TRANSPOSE MATRIX.  TRANSP1 USES LOCATIONS XNB+0,+1 THROUGH XNB+16D, 17D AND TRANSP2 USES LOCATIONS
 # XNB1+0,+1 THROUGH XNB1+16D, 17D.  EACH MATRIX IS STORED BY ROWS.
@@ -208,41 +210,39 @@ XNBEB		ECADR	XNB
 XNB1EB		ECADR	XNB1
 
 		EBANK=	XNB
-
+		
 TRANSP1		CAF	XNBEB
 		TS	EBANK
 		DXCH	XNB +2
 		DXCH	XNB +6
 		DXCH	XNB +2
-
+		
 		DXCH	XNB +4
 		DXCH	XNB +12D
 		DXCH	XNB +4
-
+		
 		DXCH	XNB +10D
 		DXCH	XNB +14D
 		DXCH	XNB +10D
 		TCF	DANZIG
-
-
 		EBANK=	XNB1
-
+		
 TRANSP2		CAF	XNB1EB
 		TS	EBANK
 		DXCH	XNB1 +2
 		DXCH	XNB1 +6
 		DXCH	XNB1 +2
-
+		
 		DXCH	XNB1 +4
 		DXCH	XNB1 +12D
 		DXCH	XNB1 +4
-
+		
 		DXCH	XNB1 +10D
 		DXCH	XNB1 +14D
 		DXCH	XNB1 +10D
 		TCF	DANZIG
 
-# Page 1514
+## Page 1514
 # THE SUBROUTINE SIGNMPAC SETS C(MPAC, MPAC +1) TO SIGN(MPAC).
 # FOR THIS, ONLY THE CONTENTS OF MPAC ARE EXAMINED.  ALSO +0 YIELDS POSMAX AND -0 YIELDS NEGMAX.
 #
@@ -253,7 +253,7 @@ TRANSP2		CAF	XNB1EB
 #	2.	GENERATE IN MPAC THE SIGNUM FUNCTION OF MPAC:
 #		ENTRY:		RTB
 #					SIGNMPAC
-# IN EITHER CASE, RETURN IS TO TEH NEXT INTERPRETIVE INSTRUCTION IN THE CALLING SEQUENCE.
+# IN EITHER CASE, RETURN IS TO THE NEXT INTERPRETIVE INSTRUCTION IN THE CALLING SEQUENCE.
 
 SIGNMPAC	EXTEND
 		DCA	DPOSMAX
@@ -267,8 +267,8 @@ DPMODE		CAF	ZERO		# SETS MPAC +2 TO ZERO IN THE PROCESS
 		TCF	SLOAD2
 
 # RTB OP CODE NORMUNIT IS LIKE INTERPRETIVE INSTRUCTION UNIT, EXCEPT THAT IT CAN BE DEPENDED ON NOT TO BLOW
-# UP WHEN THE VECTOR BEING UNITIZED IS VERY SMALL -- IT WILL BLOW UP WHEN ALL COMPONENT ARE ZERO.  IF NORMUNIT
-# IS USED AND THE UPPER ORDER HALVES OF ALL COMPONENTS ARE ZERO, THE MAGNITUDE RETURNS IN 36D WILL BE TOO LARGE
+# UP WHEN THE VECTOR BEING UNITIZED IS VERY SMALL -- IT WILL BLOW UP WHEN ALL COMPONENTS ARE ZERO.  IF NORMUNIT
+# IS USED AND THE UPPER ORDER HALVES OF ALL COMPONENTS ARE ZERO, THE MAGNITUDE RETURNED IN 36D WILL BE TOO LARGE
 # BY A FACTOR OF 2(13) AND THE SQUARED MAGNITUDE RETURNED AT 34D WILL BE TOO BIG BY A FACTOR OF 2(26).
 
 NORMUNX1	CAF	ONE
@@ -290,7 +290,7 @@ NORMUNIT	CAF	ZERO
 		TCF	NOSHIFT
 		TCF	+2
 		TCF	NOSHIFT
-# Page 1515
+## Page 1515
 		CA	MPAC +1		# SHIFT ALL COMPONENTS LEFT 13
 		EXTEND
 		MP	BIT14
@@ -312,13 +312,13 @@ OFFTUNIT	TC	POSTJUMP
 NOSHIFT		CAF	ZERO
 		TCF	OFFTUNIT -2
 
-# RTB VECSGNAG ...FORCES SIGN AGREEMENT OF VECTOR IN MPAC.
+# RTB VECSGNAG ... FORCES SIGN AGREEMENT OF VECTOR IN MPAC.
 
 VECSGNAG	TC	BANKCALL
 		CADR	VECAGREE
 		TC	DANZIG
 
-# Page 1516
+## Page 1516
 # MODULE CHANGE FOR NEW LUNAR GRAVITY MODEL
 		SETLOC	MODCHG3
 		BANK
@@ -349,10 +349,7 @@ QUALITY2	PDDL	DSQ		# SQUARE INTO 2D, B2
 					# ANSWER, SAME AS MULTIPLYING BY UNITY.
 					# MAX IS 7.
 		STORE 	4D		# 2D HAS VECTOR, B3.
-		SLOAD	VXSC		# MULTIPLY COEFFICIENT TIMES VECTOR IN 2D
+		SLOAD	VXSC		# MULTIPLY COEFFIECIENT TIMES VECTOR IN 2D
 			E3J22R2M
 		PDDL	RVQ		# J22 TERM X R**4 IN 2D, SCALED B61
 			COSPHI/2	# SAME AS URPV +4, Z COMPONENT
-
-# *** END OF CHIEFTAN.028 ***
-

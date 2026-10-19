@@ -1,37 +1,42 @@
-# Copyright:    Public domain.
-# Filename:     KEYRUPT_UPRUPT.agc
-# Purpose:      Part of the source code for Comanche, build 055. It
-#               is part of the source code for the Command Module's
-#               (CM) Apollo Guidance Computer (AGC), Apollo 11.
-# Assembler:    yaYUL
-# Reference:    pp. 1449-1451
-# Contact:      Ron Burkey <info@sandroid.org>
-# Website:      http://www.ibiblio.org/apollo.
-# Mod history:  2009-05-07 RSB	Adapted from Colossus249 file of the same
-#				name, and page images. Corrected various
-#				typos in the transcription of program
-#				comments, and these should be back-ported
-#				to Colossus249.
-#
-# The contents of the "Comanche055" files, in general, are transcribed
-# from scanned documents.
-#
-#       Assemble revision 055 of AGC program Comanche by NASA
-#       2021113-051.  April 1, 1969.
-#
-#       This AGC program shall also be referred to as Colossus 2A
-#
-#       Prepared by
-#                       Massachusetts Institute of Technology
-#                       75 Cambridge Parkway
-#                       Cambridge, Massachusetts
-#
-#       under NASA contract NAS 9-4065.
-#
-# Refer directly to the online document mentioned above for further
-# information.  Please report any errors to info@sandroid.org.
+### FILE="Main.annotation"
+## Copyright:    Public domain.
+## Filename:     KEYRUPT_UPRUPT.agc
+## Purpose:      Part of the source code for Comanche, build 055. It
+##               is part of the source code for the Command Module's
+##               (CM) Apollo Guidance Computer (AGC), Apollo 11.
+## Assembler:    yaYUL
+## Reference:    pp. 1449-1451
+## Contact:      Ron Burkey <info@sandroid.org>
+## Website:      http://www.ibiblio.org/apollo.
+## Mod history:  2009-05-07 RSB	Adapted from Colossus249 file of the same
+##				name, and page images. Corrected various 
+##				typos in the transcription of program 
+##				comments, and these should be back-ported  
+##				to Colossus249.
+##		2016-12-22 RSB	Proofed comment text using octopus/ProoferComments
+##				and corrected the errors found.
+##		2017-02-05 RSB	Back-ported comment corrections 
+##				identified while proofing Artemis 072.
+##
+## The contents of the "Comanche055" files, in general, are transcribed 
+## from scanned documents. 
+##
+##       Assemble revision 055 of AGC program Comanche by NASA
+##       2021113-051.  April 1, 1969.  
+##
+##       This AGC program shall also be referred to as Colossus 2A
+##
+##       Prepared by
+##                       Massachusetts Institute of Technology
+##                       75 Cambridge Parkway
+##                       Cambridge, Massachusetts
+##
+##       under NASA contract NAS 9-4065.
+##
+## Refer directly to the online document mentioned above for further
+## information.  Please report any errors to info@sandroid.org.
 
-# Page 1449
+## Page 1449
 		BANK	14
 		SETLOC	KEYRUPT
 		BANK
@@ -59,7 +64,7 @@ ACCEPTUP	CAF	CHRPRIO		# (NOTE: RUPTREG4 = KEYTEMP1)
 		TS	MPAC		# LEAVE 5 BIT KEY CDE IN MPAC FOR CHARIN
 		TC	RESUME
 
-# Page 1450
+## Page 1450
 # UPRUPT PROGRAM
 
 UPRUPT		TS	BANKRUPT
@@ -88,8 +93,8 @@ UPRPT1		CAF	LOW5		# TEST FOR TRIPLE CHAR REDUNDANCY
 		COM
 		TC	UPTEST
 
-UPOK		CS	ELRCODE		# CODE IS GOOD. IF CODE = 'ERROR RESET',
-		AD	KEYTEMP1	# CLEAR UPLOCKFL(SET BIT4 OF FLAGWRD7 = 0)
+UPOK		CS	ELRCODE		# CODE IS GOOD.  IF CODE = 'ERROR RESET',
+		AD	KEYTEMP1	# CLEAR UPLOCKFL (SET BIT4 OF FLAGWRD7 = 0)
 		EXTEND			# IF CODE DOES NOT = 'ERROR RESET', ACCEPT
 		BZF	CLUPLOCK	# CODE ONLY IF UPLOCKFL IS CLEAR (=0).
 
@@ -110,7 +115,7 @@ TMFAIL2		CS	FLAGWRD7	# LOCK OUT FURTHER UPLINK ACTIVITY
 		ADS	FLAGWRD7	# 'ERROR RESET' IS SENT VIA UPLINK.
 		TC	RESUME
 UPTEST		AD	KEYTEMP1
-# Page 1451
+## Page 1451
 		CCS	A
 		TC	TMFAIL2
 HI10		OCT	77740
@@ -122,15 +127,16 @@ ELRCODE		OCT	22
 # 'UPLINK ACTIVITY LIGHT' IS TURNED OFF BY .....
 #	1.	VBRELDSP
 #	2.	ERROR RESET
-#	3.	UPDATE PROGRAM(P27) ENTERED BY V70,V71,V72,AND V73.
+#	3.	UPDATE PROGRAM (P27) ENTERED BY V70,V71,V72, AND V73.
 #
-#
-#					-
-# THE RECEPTION OF A BAD CODE(I.E. CCC FAILURE) LOCKS OUT FURTHER UPLINK ACTIVITY BY SETTING BIT4 OF FLAGWRD7 = 1.
+#				     -
+# THE RECEPTION OF A BAD CODE (I.E  CCC FAILURE) LOCKS OUT FURTHER UPLINK ACTIVITY BY SETTING BIT4 OF FLAGWRD7 = 1.
 # THIS INDICATION WILL BE TRANSFERRED TO THE GROUND BY THE DOWNLINK WHICH DOWNLINKS ALL FLAGWORDS.
-# WHEN UPLINK ACTIVITY IS LOCKED OUT ,IT CAN BE ALLOWED WHEN THE GROUND UPLINKS AND 'ERROR RESET' CODE.
+# WHEN UPLINK ACTIVITY IS LOCKED OUT, IT CAN BE ALLOWED WHEN THE GROUND UPLINKS AND 'ERROR RESET' CODE.
 # (IT IS RECOMMENDED THAT THE 'ERROR LIGHT RESET' CODE IS PRECEEDED BY 16 BITS THE FIRST OF WHICH IS 1 FOLLOWED
-# BY 15 ZEROS. THIS WILL ELIMINATE EXTRANEOUS BITS FROM INLINK WHICH MAY HAVE BEEN LEFT OVER FROM THE ORIGINAL
-# FAILURE).
-# UPLINK ACTIVITY IS ALSO ALLOWED(UNLOCKED) DURING FRESH START WHEN FRESH START SETS BIT4 OF FLAGWRD7 = 0.
+# BY 15 ZEROES.  THIS WILL ELIMINATE EXTRANEOUS BITS FROM INLINK WHICH MAY HAVE BEEN LEFT OVER FROM THE ORIGINAL
+# FAILURE)
+#
+# UPLINK ACTIVITY IS ALSO ALLOWED (UNLOCKED) DURING FRESH START WHEN FRESH START SETS BIT4 OF FLAGWRD7 = 0.
+
 

@@ -1,33 +1,34 @@
-# Copyright:	Public domain.
-# Filename:	TAGS_FOR_RELATIVE_SETLOC.agc
-# Purpose:	Part of the source code for Luminary 1A build 099.
-#		It is part of the source code for the Lunar Module's (LM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-#
-# Assembler:	yaYUL
-# Contact:	Jim Lawton <jim.lawton@gmail.com>
-# Website:	www.ibiblio.org/apollo.
-# Pages:	028-037
-# Mod history:	2009-05-16	JVL	Transcribed from page images.
-#
-# This source code has been transcribed or otherwise adapted from digitized
-# images of a hardcopy from the MIT Museum.  The digitization was performed
-# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
-# thanks to both.  The images (with suitable reduction in storage size and
-# consequent reduction in image quality as well) are available online at
-# www.ibiblio.org/apollo.  If for some reason you find that the images are
-# illegible, contact me at info@sandroid.org about getting access to the
-# (much) higher-quality images which Paul actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#    Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-#    16:27 JULY 14, 1969
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	TAGS_FOR_RELATIVE_SETLOC.agc
+## Purpose:	Part of the source code for Luminary 1A build 099.
+##		It is part of the source code for the Lunar Module's (LM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+##
+## Assembler:	yaYUL
+## Contact:	Jim Lawton <jim.lawton@gmail.com>
+## Website:	www.ibiblio.org/apollo.
+## Pages:	028-037
+## Mod history:	2009-05-16	JVL	Transcribed from page images.
+##		2016-12-13 RSB	Proofed text comments with octopus/ProoferComments
+##				and corrected the errors found.
+##
+## This source code has been transcribed or otherwise adapted from digitized
+## images of a hardcopy from the MIT Museum.  The digitization was performed
+## by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+## thanks to both.  The images (with suitable reduction in storage size and
+## consequent reduction in image quality as well) are available online at
+## www.ibiblio.org/apollo.  If for some reason you find that the images are
+## illegible, contact me at info@sandroid.org about getting access to the
+## (much) higher-quality images which Paul actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##    Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
+##    16:27 JULY 14, 1969
 
-# Page 28
-# TAGS FOR RELATIVE SETLOC AND BLANK BANK CARDS
-
-# 		COUNT	BANKSUM
+## Page 28
+ 		COUNT	BANKSUM
 
 # MODULE 1 CONTAINS BANKS 0 THROUGH 5
 
@@ -45,21 +46,21 @@ FFTAG11		EQUALS
 FFTAG12		EQUALS
 FFTAG13		EQUALS
 		BNKSUM	02
-
+		
 		BLOCK	03
 FFTAG5		EQUALS
 FFTAG6		EQUALS
 		BNKSUM	03
-
+		
 		BANK	00
 DLAYJOB		EQUALS
 		BNKSUM	00
-
+		
 		BANK	01
 RESTART		EQUALS
 LOADDAP1	EQUALS
 		BNKSUM	01
-
+		
 		BANK	04
 R02		EQUALS
 VERB37		EQUALS
@@ -71,8 +72,8 @@ UPDATE2		EQUALS
 E/PROG		EQUALS
 AOTMARK2	EQUALS
 		BNKSUM	04
-
-# Page 29
+		
+## Page 29
 		BANK	05
 FRANDRES	EQUALS
 DOWNTELM	EQUALS
@@ -80,7 +81,7 @@ ABORTS1		EQUALS
 EPHEM1		EQUALS
 ASENT3		EQUALS
 		BNKSUM	05
-
+		
 # MODULE 2 CONTAINS BANKS 6 THROUGH 13
 
 		BANK	06
@@ -90,13 +91,13 @@ RCSMONT		EQUALS
 MIDDGIM		EQUALS
 EARTHLOC	EQUALS
 		BNKSUM	06
-
+	
 		BANK	07
 AOTMARK1	EQUALS
 MODESW		EQUALS
 ASENT2		EQUALS
 		BNKSUM	07
-
+		
 		BANK	10
 RTBCODES	EQUALS
 DISPLAYS	EQUALS
@@ -104,20 +105,20 @@ PHASETAB	EQUALS
 FLESHLOC	EQUALS
 SLCTMU		EQUALS
 		BNKSUM	10
-
+		
 		BANK	11
 ORBITAL		EQUALS
 F2DPS*11	EQUALS
 INTVEL		EQUALS
 		BNKSUM	11
-
+		
 		BANK	12
 CONICS		EQUALS
 ORBITAL1	EQUALS
-# Page 30
+## Page 30
 INTPRET2	EQUALS
 		BNKSUM	12
-
+		
 		BANK	13
 LATLONG		EQUALS
 INTINIT		EQUALS
@@ -126,42 +127,42 @@ P76LOC		EQUALS
 ORBITAL2	EQUALS
 ABTFLGS		EQUALS
 		BNKSUM	13
-
-# Page 31
+		
+## Page 31
 # MODULE 3 CONTAINS BANKS 14 THROUGH 21
 
 		BANK 	14
 P50S1		EQUALS
 STARTAB		EQUALS
 ASENT4		EQUALS
-		BNKSUM	14
+		BNKSUM	14	
 
 		BANK	15
 P50S		EQUALS
 EPHEM		EQUALS
 		BNKSUM	15
-
+		
 		BANK	16
 DAPS1		EQUALS
 		BNKSUM	16
-
+		
 		BANK	17
 DAPS2		EQUALS
 P40S3		EQUALS
 		BNKSUM	17
-
+		
 		BANK	20
 DAPS3		EQUALS
 LOADDAP		EQUALS
 RODTRAP		EQUALS
 		BNKSUM	20
-
+		
 		BANK	21
 DAPS4		EQUALS
 R10		EQUALS
 R11		EQUALS
 		BNKSUM	21
-# Page 32
+## Page 32
 
 # MODULE 4 CONTAINS BANKS 22 THROUGH 27
 
@@ -189,12 +190,12 @@ P12A		EQUALS
 NORMLIZ		EQUALS
 ASENT7		EQUALS
 		BNKSUM	23
-
+		
 		BANK	24
 PLANTIN		EQUALS
 P20S		EQUALS
 		BNKSUM	24
-
+		
 		BANK	25
 P20S1		EQUALS
 P20S2		EQUALS
@@ -203,9 +204,9 @@ RRLEADIN	EQUALS
 R29S1		EQUALS
 PLANTIN3	EQUALS
 		BNKSUM	25
-
+		
 		BANK	26
-# Page 33
+## Page 33
 P20S3		EQUALS
 BAWLANGS	EQUALS
 MANUVER		EQUALS
@@ -213,7 +214,7 @@ MANUVER1	EQUALS
 PLANTIN1	EQUALS
 PLANTIN2	EQUALS
 		BNKSUM	26
-
+		
 		BANK	27
 TOF-FF		EQUALS
 TOF-FF1		EQUALS
@@ -223,7 +224,7 @@ ASENT1		EQUALS
 SERV3		EQUALS
 		BNKSUM	27
 
-# Page 34
+## Page 34
 # MODULE 5 CONTAINS BANKS 30 THROUGH 35
 
 		BANK	30
@@ -235,13 +236,13 @@ FLOGSUB		EQUALS
 VB67A		EQUALS
 ASENT5		EQUALS
 		BNKSUM	30
-
+		
 		BANK	31
 FTHROT		EQUALS
 F2DPS*31	EQUALS
 VB67		EQUALS
 		BNKSUM	31
-
+		
 		BANK	32
 P20S4		EQUALS
 F2DPS*32	EQUALS
@@ -251,13 +252,13 @@ P66LOC		EQUALS
 R47		EQUALS
 SERV		EQUALS
 		BNKSUM	32
-
+		
 		BANK	33
 SERVICES	EQUALS
 R29/SERV	EQUALS
 ASENT6		EQUALS
 		BNKSUM	33
-
+		
 		BANK	34
 STBLEORB	EQUALS
 P30S1		EQUALS
@@ -267,21 +268,21 @@ R12STUFF	EQUALS
 SERV4		EQUALS
 		BNKSUM	34
 
-# Page 35
+## Page 35
 		BANK	35
 CSI/CDH		EQUALS
 P30S		EQUALS
 GLM		EQUALS
 P40S2		EQUALS
 		BNKSUM	35
-
-# Page 36
+		
+## Page 36
 # MODULE 6 CONTAINS BANKS 36 THROUGH 43
 
 		BANK	36
 P40S		EQUALS
 		BNKSUM	36
-
+		
 		BANK	37
 P05P06		EQUALS
 IMU2		EQUALS
@@ -290,29 +291,29 @@ R31		EQUALS
 IMUSUPER	EQUALS
 SERV1		EQUALS
 		BNKSUM	37
-
+		
 		BANK	40
 PINBALL1	EQUALS
 SELFSUPR	EQUALS
 PINSUPER	EQUALS
 R31LOC		EQUALS
 		BNKSUM	40
-
+		
 		BANK	41
 PINBALL2	EQUALS
 		BNKSUM	41
-
+		
 		BANK	42
-SBAND		EQUALS
+SBAND		EQUALS	
 PINBALL3	EQUALS
 		BNKSUM	42
-
+		
 		BANK	43
 EXTVERBS	EQUALS
 SELFCHEC	EQUALS
 		BNKSUM	43
-
-# Page 37
+		
+## Page 37
 
 HI6ZEROS	EQUALS	ZEROVECS		# ZERO VECTOR ALWAYS IN HIGH MEMORY
 LO6ZEROS	EQUALS	ZEROVEC			# ZERO VECTOR ALWAYS IN LOW MEMORY
@@ -327,7 +328,7 @@ LOUNITX		EQUALS	XUNIT			# 2DEC .5
 LOUNITY		EQUALS	YUNIT			# 2DEC 0
 LOUNITZ		EQUALS	ZUNIT			# 2DEC 0
 
-DELRSPL		EQUALS	SPLRET			# COL PGM, ALSO CALLED BY R30 IN LUMINARY.
+DELRSPL		EQUALS	SPLRET			# COL PGM, ALSO CALLED BY R30 IN LUMINARY
 
 # ROPE-SPECIFIC ASSIGNS OBVIATING NEED TO CHECK COMPUTER FLAG IN DETERMINING INTEGRATION AREA ENTRIES.
 

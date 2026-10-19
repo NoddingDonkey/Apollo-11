@@ -1,39 +1,43 @@
-# Copyright:	Public domain.
-# Filename:	IMU_PERFORMANCE_TEST_2.agc
-# Purpose: 	Part of the source code for Luminary 1A build 099.
-#		It is part of the source code for the Lunar Module's (LM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:	yaYUL
-# Contact:	Ron Burkey <info@sandroid.org>.
-# Website:	www.ibiblio.org/apollo.
-# Pages:	373-381
-# Mod history:	2009-05-17 RSB	Adapted from the corresponding
-#				Luminary131 file, using page
-#				images from Luminary 1A.
-#
-# This source code has been transcribed or otherwise adapted from
-# digitized images of a hardcopy from the MIT Museum.  The digitization
-# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-# the Museum.  Many thanks to both.  The images (with suitable reduction
-# in storage size and consequent reduction in image quality as well) are
-# available online at www.ibiblio.org/apollo.  If for some reason you
-# find that the images are illegible, contact me at info@sandroid.org
-# about getting access to the (much) higher-quality images which Paul
-# actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-#	16:27 JULY 14, 1969
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	IMU_PERFORMANCE_TEST_2.agc
+## Purpose: 	Part of the source code for Luminary 1A build 099.
+##		It is part of the source code for the Lunar Module's (LM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:	yaYUL
+## Contact:	Ron Burkey <info@sandroid.org>.
+## Website:	www.ibiblio.org/apollo.
+## Pages:	373-381
+## Mod history:	2009-05-17 RSB	Adapted from the corresponding 
+##				Luminary131 file, using page 
+##				images from Luminary 1A.
+##		2011-01-06 JL	Fixed pseudo-label indentation.
+##		2016-12-14 RSB	Proofed text comments with octopus/ProoferComments
+##				and corrected the errors found.
+##
+## This source code has been transcribed or otherwise adapted from
+## digitized images of a hardcopy from the MIT Museum.  The digitization
+## was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+## the Museum.  Many thanks to both.  The images (with suitable reduction
+## in storage size and consequent reduction in image quality as well) are
+## available online at www.ibiblio.org/apollo.  If for some reason you
+## find that the images are illegible, contact me at info@sandroid.org
+## about getting access to the (much) higher-quality images which Paul
+## actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##	Assemble revision 001 of AGC program LMY99 by NASA 2021112-61
+##	16:27 JULY 14, 1969 
 
-# Page 373
-# NAME --	IMU PERFORMANCE TESTS 2
+## Page 373
+# NAME -	IMU PERFORMANCE TESTS 2
 #
-# DATE --	MARCH 20, 1967
+# DATE -	MARCH 20, 1967
 #
-# BY --		SYSTEM TEST GROUP 864-6900 EXT. 1274
+# BY -		SYSTEM TEST GROUP 864-6900 EXT. 1274
 #
-# MODNO. --	ZERO
+# MODNO. -	ZERO
 #
 # FUNCTIONAL DESCRIPTION
 #
@@ -46,10 +50,10 @@
 		BANK
 		EBANK=	POSITON
 		COUNT*	$$/P07
-
+		
 REDO		TC	NEWMODEX
 		MM	07
-
+		
 GEOIMUTT	TC	IMUZERR
 IMUBACK		CA	ZERO
 		TS	NDXCTR
@@ -77,7 +81,7 @@ LATAZCHK	DLOAD	SL2
 		TC	ENDTEST1
 		TC	+2
 		TC	-5
-# Page 374
+## Page 374
 		TC	INTPRET
 		SLOAD	RTB
 			DSPTEM1
@@ -120,7 +124,7 @@ POSGMBL		STCALL	ZNB 	+2
 		TC	LONGCALL	# DELAY WHILE SUSPENSION STABILIZES
 		EBANK=	POSITON
 		2CADR	GOESTIMS
-
+		
 		CA	ESTICADR
 		TC	JOBSLEEP
 GOESTIMS	CA	ESTICADR
@@ -128,19 +132,19 @@ GOESTIMS	CA	ESTICADR
 		TC	TASKOVER
 ESTICADR	CADR	ESTIMS
 TORQUE		CA	ZERO
-# Page 375
+## Page 375
 		TS	DSPTEM2
 		CA	DRIFTI
 		TS	DSPTEM2 +1
 		INDEX	POSITON
 		TS	SOUTHDR -1
 		TC	SHOW
-
+		
 PIPACHK		INDEX	NDXCTR		# PIPA TEST
 		TC	+1
 		TC	EARTHR*
 		CA	DEC17		# ALLOW PIP COUNTER TO OVERFLOW 17 TIMES
-		TS	DATAPL	+4	# IN THE ALLOTTED TIME INTERVAL
+		TS	DATAPL	+4	# IN THE ALLOTED TIME INTERVAL
 		CA	DEC58
 		TS	LENGTHOT
 		CA	ONE
@@ -156,7 +160,7 @@ PIPACHK		INDEX	NDXCTR		# PIPA TEST
 		EBANK=	XSM
 		ADRES	PIPATASK
 		TC	ENDOFJOB
-
+		
 PIPATASK	EXTEND
 		DIM	LENGTHOT
 		CA	LENGTHOT
@@ -170,18 +174,18 @@ STARTPIP	CAF	PRIO20
 		TC	FINDVAC
 		EBANK=	XSM
 		2CADR	PIPJOBB
-
+		
 		TC	TASKOVER
-
+		
 PIPJOBB		INDEX	NDXCTR
 		TC	+1
 		TC	EARTHR*
 		CA	LENGTHOT
-# Page 376
+## Page 376
 		EXTEND
 		BZMF	+2
 		TC	ENDOFJOB
-
+		
 		CA	FIVE
 		TS	RESULTCT
 		TC	CHECKG
@@ -193,7 +197,7 @@ PIPJOBB		INDEX	NDXCTR
 		EXTEND
 		DCS	DATAPL
 		DAS	DATAPL 	+4
-
+		
 		TC	INTPRET
 		DLOAD	DSU
 			DATAPL	+6
@@ -217,8 +221,8 @@ VERTDRFT	CA	3990DEC		# ABOUT 1 HOUR VERTICAL DRIFT TEST
 		CS	SOUTHDR -2
 		TS	DRIFTT
 		CCS	PIPINDEX	# OFFSET PLATFORM TO MISS PIP DEAD-ZONES
-		TCF	PON4		# Z-UP IN POS 4
-PON2		CS	BIT5		# X-UP
+		TCF	PON4		# Z UP IN POS 4
+PON2		CS	BIT5		# X UP
 		ADS	ERCOMP 	+2
 		CA	BIT5
 		ADS	ERCOMP 	+4
@@ -228,7 +232,7 @@ PON4		CS	BIT5
 		CA	BIT5
 		ADS	ERCOMP
 PON		TC	EARTHR*
-# Page 377
+## Page 377
 		CA	ZERO		# ALLOW ONLY SOUTH GYRO EARTH RATE COMPENS
 		TS	ERVECTOR
 		TS	ERVECTOR +1
@@ -243,19 +247,19 @@ VALMIS		CA	DRIFTO
 		CA	ZERO
 		TS	DSPTEM2
 		TC	SHOW
-
+		
 ENDTEST1	TC	DOWNFLAG
 		ADRES	IMUSE
 		CS	ZERO
 		TC	NEWMODEA
 		TC	ENDEXT
-
-# Page 378
+		
+## Page 378
 OVERFFIX	DAD	DAD
 			DPPOSMAX
 			ONEDPP
 		RVQ
-
+		
 COAALIGN	EXTEND			# COARSE ALIGN SUBROUTINE
 		QXCH	ZERONDX
 		CA	ZERO
@@ -272,19 +276,19 @@ ALIGNCOA	TC	BANKCALL
 IMUSLLLG	EXTEND
 		QXCH	ZERONDX
 		TC	ALIGNCOA
-
+		
 FINIMUDD	EXTEND
 		QXCH	ZERONDX
 		TC	BANKCALL
 		CADR	IMUFINE
 		TC	ALIGNCOA
-
+		
 IMUZERR		EXTEND
 		QXCH	ZERONDX
 		TC	BANKCALL
 		CADR	IMUZERO
 		TC	ALIGNCOA
-
+		
 CHECKG		EXTEND			# PIP PULSE CATCHING ROUTINE
 		QXCH	QPLACE
 		TC	+6
@@ -298,7 +302,7 @@ CHECKG1		RELINT
 		CS	PIPAX
 		TS	ZERONDX
 		INHINT
-# Page 379
+## Page 379
 		INDEX	PIPINDEX
 		CA	PIPAX
 		AD	ZERONDX
@@ -327,7 +331,7 @@ ZEROING1	TS	ZERONDX
 		TCF	ZEROING1
 		TC	Q
 
-# Page 380
+## Page 380
 ERTHRVSE	DLOAD	PDDL
 			SCHZEROS	# PD24 = (SIN             -COS     0)(OMEG/MS)
 			LATITUDE
@@ -343,7 +347,7 @@ ERTHRVSE	DLOAD	PDDL
 			SCHZEROS
 		STORE	ERCOMP
 		RVQ
-
+		
 EARTHR		ITA	RTB
 			S2
 			LOADTIME
@@ -367,7 +371,7 @@ ERTHR		SL	VXSC
 			PULSEIMU
 		GOTO
 			S2
-
+			
 EARTHR*		EXTEND
 		QXCH	QPLACES
 		TC	INTPRET
@@ -376,9 +380,9 @@ EARTHR*		EXTEND
 		EXIT
 		TC	IMUSLLLG
 		TC	QPLACES
-
+		
 SHOW		EXTEND
-# Page 381
+## Page 381
 		QXCH	QPLACE
 SHOW1		CA	POSITON
 		TS	DSPTEM2 +2
@@ -388,7 +392,7 @@ SHOW1		CA	POSITON
 		TC	ENDTEST1	# V34
 		TC	QPLACE		# V33
 		TCF	SHOW1
-
+		
 3990DEC		DEC	3990
 VB06N98		VN	0698
 VN0641		VN	0641
@@ -418,4 +422,4 @@ FINETIME	INHINT			# RETURNS WITH INTERRUPT INHIBITED
 		EXTEND
 		READ	HISCALAR
 		TC Q
-
+		

@@ -1,48 +1,57 @@
-# Copyright:	Public domain.
-# Filename:	BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc
-# Purpose: 	Part of the source code for Luminary 1A build 099.
-#		It is part of the source code for the Lunar Module's (LM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:	yaYUL
-# Contact:	Ron Burkey <info@sandroid.org>.
-# Website:	www.ibiblio.org/apollo.
-# Pages:	731-751
-# Mod history:	2009-05-19 RSB	Adapted from the corresponding
-#				Luminary131 file, using page
-#				images from Luminary 1A.
-#		2009-06-07 RSB	Corrected 3 typos.
-#		2009-07-23 RSB	Added Onno's notes on the naming
-#				of this function, which he got from
-#				Don Eyles.
-#
-# This source code has been transcribed or otherwise adapted from
-# digitized images of a hardcopy from the MIT Museum.  The digitization
-# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-# the Museum.  Many thanks to both.  The images (with suitable reduction
-# in storage size and consequent reduction in image quality as well) are
-# available online at www.ibiblio.org/apollo.  If for some reason you
-# find that the images are illegible, contact me at info@sandroid.org
-# about getting access to the (much) higher-quality images which Paul
-# actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-#	16:27 JULY 14, 1969
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	BURN_BABY_BURN--MASTER_IGNITION_ROUTINE.agc
+## Purpose: 	Part of the source code for Luminary 1A build 099.
+##		It is part of the source code for the Lunar Module's (LM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:	yaYUL
+## Contact:	Ron Burkey <info@sandroid.org>.
+## Website:	www.ibiblio.org/apollo.
+## Pages:	731-751
+## Mod history:	2009-05-19 RSB	Adapted from the corresponding 
+##				Luminary131 file, using page 
+##				images from Luminary 1A.
+##		2009-06-07 RSB	Corrected 3 typos.
+##		2009-07-23 RSB	Added Onno's notes on the naming
+##				of this function, which he got from
+##				Don Eyles.
+##		2011-01-06 JL	Fixed pseudo-label indentation.
+##		2011-05-08 JL	Removed workarounds.
+##		2016-12-13 RSB	GOTOP00H -> GOTOPOOH
+##		2016-12-15 RSB	Proofed text comments with octopus/ProoferComments
+##				and corrected the errors found.
+##		2017-03-09 RSB	Comment-text fixes noted in proofing Luminary 116.
+##		2017-03-16 RSB	Comment-text fixes identified in 5-way
+##				side-by-side diff of Luminary 69/99/116/131/210.
 
-# Page 731
+## This source code has been transcribed or otherwise adapted from
+## digitized images of a hardcopy from the MIT Museum.  The digitization
+## was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+## the Museum.  Many thanks to both.  The images (with suitable reduction
+## in storage size and consequent reduction in image quality as well) are
+## available online at www.ibiblio.org/apollo.  If for some reason you
+## find that the images are illegible, contact me at info@sandroid.org
+## about getting access to the (much) higher-quality images which Paul
+## actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##	Assemble revision 001 of AGC program LMY99 by NASA 2021112-61
+##	16:27 JULY 14, 1969 
+
+## Page 731
+## <br><br>
 ## At the get-together of the AGC developers celebrating the 40th anniversary
 ## of the first moonwalk, Don Eyles (one of the authors of this routine along
 ## with Peter Adler) has related to us a little interesting history behind the
-## naming of the routine.
-##
-## It traces back to 1965 and the Los Angeles riots, and was inspired
+## naming of the routine.<br>
+## <br>
+## It traces back to 1965 and the Los Angeles riots, and was inspired 
 ## by disc jockey extraordinaire and radio station owner Magnificent Montague.
-## Magnificent Montague used the phrase "Burn, baby! BURN!" when spinning the
+## Magnificent Montague used the phrase "Burn, baby! BURN!" when spinning the 
 ## hottest new records. Magnificent Montague was the charismatic voice of
-## soul music in Chicago, New York, and Los Angeles from the mid-1950s to
+## soul music in Chicago, New York, and Los Angeles from the mid-1950s to 
 ## the mid-1960s.
-# BURN, BABY, BURN -- MASTER IGNITION ROUTINE
 
 		BANK	36
 		SETLOC	P40S
@@ -57,7 +66,7 @@
 #
 # VARIATIONS AMONG PROGRAMS ARE ACCOMODATED BY MEANS OF TABLES CONTAINING CONSTANTS (FOR AVEGEXIT, FOR
 # WAITLIST, FOR PINBALL) AND TCF INSTRUCTIONS.  USERS PLACE THE ADRES OF THE HEAD OF THE APPROPRIATE TABLE
-# (OF P61TABLE FOR P61LM, FOR EXAMPLE) IN ERASABLE REGISTER `WHICH' (E4).  THE IGNITION ROUTINE THEN INDEXES BY
+# (OF P61TABLE FOR P61LM, FOR EXAMPLE) IN ERASABLE REGISTER 'WHICH' (E4).  THE IGNITION ROUTINE THEN INDEXES BY
 # WHICH TO OBTAIN OR EXECUTE THE PROPER TABLE ENTRY.  THE IGNITION ROUTINE IS INITIATED BY A TCF BURNBABY,
 # THROUGH BANKJUMP IF NECESSARY.  THERE IS NO RETURN.
 #
@@ -65,9 +74,9 @@
 #
 # 		   HONI SOIT QUI MAL Y PENSE
 #
-#	***********************************************
-#		TABLES FOR THE IGNITION ROUTINE
-#	***********************************************
+#	****************************************
+#	TABLES FOR THE IGNITION ROUTINE
+#	****************************************
 #
 #			NOLI SE TANGERE
 
@@ -91,7 +100,7 @@ P40TABLE	VN	0640		# (0)
 		TCF	GOPOST		# (3)
 		TCF	TASKOVER	# (4)
 		TCF	P40SPOT		# (5)
-# Page 732
+## Page 732
 		DEC	2240		# (6)
 		EBANK=	OMEGAQ
 		2CADR	STEERING	# (7)
@@ -136,7 +145,7 @@ P63TABLE	VN	0662		# (0)
 
 		TCF	DISPCHNG	# (11)
 		TCF	WAITABIT	# (12)
-# Page 733
+## Page 733
 		TCF	P63IGN		# (13)
 
 ABRTABLE	VN	0663		# (0)
@@ -152,9 +161,9 @@ ABRTABLE	VN	0663		# (0)
 		TCF	WAITABIT	# (12)
 		TCF	ABRTIGN		# (13)
 
-#	*********************************
+#	****************************************
 #	GENERAL PURPOSE IGNITION ROUTINES
-#	*********************************
+#	****************************************
 
 BURNBABY	TC	PHASCHNG	# GROUP 4 RESTARTS HERE
 		OCT	04024
@@ -182,7 +191,7 @@ P42SPOT		=	P40SPOT		# (5)
 P12SPOT		=	P40SPOT		# (5)
 P63SPOT		=	P41SPOT		# (5)	IN P63 CLOKTASK ALREADY GOING
 P40SPOT		CS	CNTDNDEX	# (5)
-# Page 734
+## Page 734
 		TC	BANKCALL	# MUST BE BANKCALLED FOR GENERALIZED
 		CADR	STCLOK2		# 	RETURN
 P41SPOT		TC	INTPRET		# (5)
@@ -199,13 +208,13 @@ P41SPOT		TC	INTPRET		# (5)
 			VATT1
 			REFSMMAT
 		VSR1
-		STOVL	V(CSM)		# CSM VELOCITY -- M/CS*2(7)
+		STOVL	V(CSM)		# CSM VELOCITY - M/CS*2(7)
 			RATT1
 		VSL4	MXV
 			REFSMMAT
-		STCALL	R(CSM)		# CSM POSITION -- M*2(24)
+		STCALL	R(CSM)		# CSM POSITION - M*2(24)
 			MUNGRAV
-		STODL	G(CSM)		# CSM GRAVITY VEC. -- M/CS*2(7)
+		STODL	G(CSM)		# CSM GRAVITY VEC. - M/CS*2(7)
 			TAT
 		STORE	TDEC1		# RELOAD TDEC1 FOR MIDTOAV.
 GOMIDAV		CALRB
@@ -232,7 +241,7 @@ CALLT-35	DXCH	MPAC
 
 		TC	PHASCHNG
 		OCT	20254		# 4.25SPOT FOR TIG-35 RESTART.
-# Page 735
+## Page 735
 		TC	CHECKMM
 		DEC	63
 		TCF	ENDOFJOB	# NOT P63
@@ -245,7 +254,7 @@ CALLT-35	DXCH	MPAC
 		EXIT
 		TCF	ENDOFJOB
 
-#	********************************
+#	****************************************
 
 TIG-35		CAF	5SEC
 		TC	TWIDDLE
@@ -282,12 +291,12 @@ TIG-30.1	CAF	PRIO17		# SET UP JOB TO RESTORE DISPLAY AT TIG-30
 		2CADR	TIG-30A
 
 		TCF	TASKOVER
-# Page 736
+## Page 736
 TIG-30A		CAF	V16N85B
 		TC	BANKCALL	# RESTORE DISPLAY.
 		CADR	REGODSP		# REGODSP DOES A TCF ENDOFJOB
 
-#	********************************
+#	*****************************************
 
 TIG-30		CAF	S24.9SEC
 		TC	TWIDDLE
@@ -296,8 +305,8 @@ TIG-30		CAF	S24.9SEC
 		CS	CNTDNDEX	# START UP CLOKTASK AGAIN
 		TS	DISPDEX
 
-		INDEX	WHICH		# PICK UP APPROPRIATE ULLAGE -- ON TIME
-		CA	6		# Was CAF --- RSB 2009.
+		INDEX	WHICH		# PICK UP APPROPRIATE ULLAGE - ON TIME
+		CAF	6
 		EXTEND
 		BZMF	ULLGNOT		# DON'T SET UP ULLAGE IF DT IS NEG OR ZERO
 		TS	SAVET-30	# SAVE DELTA-T FOR RESTART
@@ -332,24 +341,24 @@ ULLGNOT		EXTEND			# (1)
 		TS	TBASE4		# SET TBASE4 FOR TIG-5 RESTART
 
 REDO2.17	EXTEND
-# Page 737
+## Page 737
 		DCA	NEG0		# CLEAR OUT GROUP 2 SO LAMBERT CAN START
 		DXCH	-PHASE2		# IF NEEDED.
 
-REDO4.2		CCS	PHASE5		# IF SERVICER GOING?
+REDO4.2		CCS	PHASE5		# IS SERVICER GOING?
 		TCF	TASKOVER	# YES, DON'T START IT UP AGAIN.
 
 		TC	POSTJUMP
-		CADR	PREREAD		# PREREAD END THIS TASK
+		CADR	PREREAD		# PREREAD ENDS THIS TASK
 
-# 	*********************************
+# 	****************************************
 
 ULLGTASK	TC	ONULLAGE	# THIS COMES AT TIG-7.5 OR TIG-3.5
 		TC	PHASCHNG
 		OCT	1
 		TCF	TASKOVER
 
-# 	*********************************
+# 	****************************************
 
 TIG-5		EXTEND
 		DCA	NEG0		# INSURE THAT GROUP 3 IS INACTIVE.
@@ -359,11 +368,11 @@ TIG-5		EXTEND
 		TC	TWIDDLE
 		ADRES	TIG-0
 
-		TC	DOWNFLAG	# RESET IGNFLAG AND ASINFLAG
-		ADRES	IGNFLAG		# 	FOR LIGHT-UP LOGIC.
+		TC	DOWNFLAG	# RESET IGNFLAG AND ASTNFLAG
+		ADRES	IGNFLAG		# 	FOR LIGHT-UP LOGIC
 		TC	DOWNFLAG
 		ADRES	ASTNFLAG
-
+		
 		INDEX	WHICH
 		TCF	11
 
@@ -380,12 +389,12 @@ P40SJUNK	CCS	PHASE3		# (11) P40 AND P42.  S40.13 IN PROGRESS?
 DISPCHNG	CS	VB99DEX		# (11)
 		TS	DISPDEX
 
-# Page 738
+## Page 738		
 COMMON		TC	PHASCHNG	# RESTART TIG-0 (4.7SPOT)
 		OCT	40074
 		TCF	TASKOVER
 
-# 	*********************************
+# 	****************************************
 
 TIG-0		CS	FLAGWRD7	# SET IGNFLAG SINCE TIG HAS ARRIVED
 		MASK	IGNFLBIT
@@ -431,7 +440,7 @@ IGNITION	CS	FLAGWRD5	# INSURE ENGONFLG IS SET.
 		DCA	TIME2
 		DAS	TIG
 
-# Page 739
+## Page 739
 		CS	FLUNDBIT	# PERMIT GUIDANCE LOOP DISPLAYS
 		MASK	FLAGWRD8
 		TS	FLAGWRD8
@@ -449,11 +458,11 @@ P63IGN		EXTEND			# (13)	INITIATE BURN DISPLAYS
 		CS	FLAGWRD9	# SET FLAG FOR P70-P71
 		MASK	LETABBIT
 		ADS	FLAGWRD9
-
+		
 		CS	FLAGWRD7	# SET SWANDISP TO ENABLE R10.
 		MASK	SWANDBIT
 		ADS	FLAGWRD7
-
+		
 		CS	PULSES		# MAKE SURE DAP IS NOT IN MINIMUM-IMPULSE
 		MASK	DAPBOOLS	# MODE, IN CASE OF SWITCH TO P66
 		TS	DAPBOOLS
@@ -462,7 +471,7 @@ P63IGN		EXTEND			# (13)	INITIATE BURN DISPLAYS
 		DCA	TIME2
 		DXCH	TIG
 
-		CAF	ZERO		# INITIALIZE WCHPHASE, AND FLPASS0
+		CAF	ZERO		# INITIALIZE WCHPHASE AND FLPASSO
 		TS	WCHPHASE
 		TS	WCHPHOLD	# ALSO WHCPHOLD
 		CA	TWO
@@ -483,7 +492,7 @@ P63IGN1		TC	2PHSCHNG
 		OCT	05014		# TYPE C RESTARTS HERE IMMEDIATELY
 		OCT	77777
 
-# Page 740
+## Page 740
 		TCF	P42IGN
 P12IGN		CAF	EBANK6
 		TS	EBANK
@@ -534,7 +543,7 @@ ULLAGOFF	TC	NOULLAGE
 
 WAITABIT	EXTEND			# KILL GROUP 4
 		DCA	NEG0
-# Page 741
+## Page 741
 		DXCH	-PHASE4
 
 		TCF	TASKOVER
@@ -542,7 +551,7 @@ WAITABIT	EXTEND			# KILL GROUP 4
 TIGTASK		TC	POSTJUMP	# (12)
 		CADR	TIGTASK1
 
-#	********************************
+#	****************************************
 
 		BANK	31
 		SETLOC	P40S3
@@ -555,11 +564,11 @@ TIGTASK1	CAF	PRIO16
 		2CADR	TIGNOW
 
 		TC	PHASCHNG
-		OCT	6		# KILL GROUP 6
+		OCT	6		# KILL GROUP 6.
 
 		TCF	TASKOVER
 
-#	********************************
+#	****************************************
 
 P63ZOOM		EXTEND
 		DCA	LUNLANAD
@@ -583,14 +592,14 @@ P40ZOOMA	TC	PHASCHNG
 		EBANK=	DVCNTR
 LUNLANAD	2CADR	LUNLAND
 
-# Page 742
+## Page 742
 ZOOM		=	P40ZOOMA
 		BANK	36
 		SETLOC	P40S
 		BANK
 		COUNT*	$$/P40
 
-#	********************************
+#	****************************************
 
 COMFAIL		TC	UPFLAG		# (15)
 		ADRES	IDLEFLAG
@@ -603,7 +612,7 @@ COMFAIL		TC	UPFLAG		# (15)
 		TC	BANKCALL	# OTHERWISE, START IT UP
 		CADR	STCLOK1
  +3		CS	VB97DEX
- 		TS	DISPDEX
+		TS	DISPDEX
 		TC	PHASCHNG	# TURN OFF GROUP 4.
 		OCT	00004
 		TCF	ENDOFJOB
@@ -627,13 +636,13 @@ COMFAIL2	TC	PHASCHNG	# KILL ZOOM RESTART PROTECTION
 		OCT	00003
 
 		INHINT
-		TC	KILLTASK	# KILL ZOOM IN CASE IT'S STILL TO COME
+		TC	KILLTASK	# KILL ZOOM, IN CASE IT'S STILL TO COME
 		CADR	ZOOM
 		TC	IBNKCALL	# COMMAND ENGINE OFF
 		CADR	ENGINOF4
 		TC	UPFLAG		# SET THE DRIFT BIT FOR THE DAP.
 		ADRES	DRIFTDFL
-# Page 743
+## Page 743
 		TC	INVFLAG		# USE OTHER RCS SYSTEM
 		ADRES	AORBTFLG
 		TC	UPFLAG		# TURN ON ULLAGE
@@ -644,9 +653,9 @@ COMFAIL2	TC	PHASCHNG	# KILL ZOOM RESTART PROTECTION
 		ADRES	TIG-5
 		TCF	ENDOFJOB
 
-#	***********************************
+#	****************************************
 #	SUBROUTINES OF THE IGNITION ROUTINE
-#	***********************************
+#	****************************************
 
 INVFLAG		CA	Q
 		TC	DEBIT
@@ -655,35 +664,35 @@ INVFLAG		CA	Q
 		RXOR	LCHAN
 		TCF	COMFLAG
 
-#	***********************************
+#	****************************************
 
 NOULLAGE	CS	ULLAGER		# MUST BE CALLED IN A TASK OR UNDER INHINT
 		MASK	DAPBOOLS
 		TS	DAPBOOLS
 		TC	Q
 
-#	***********************************
+#	****************************************
 
 ONULLAGE	CS	DAPBOOLS	# TURN ON ULLAGE.  MUST BE CALLED IN
 		MASK	ULLAGER		# A TASK OR WHILE INHINTED.
 		ADS	DAPBOOLS
 		TC	Q
 
-# 	***********************************
+# 	****************************************
 
 STCLOK1		CA	ZERO		# THIS ROUTINE STARTS THE COUNT-DOWN
 STCLOK2		TS	DISPDEX		# (CLOKTASK AND CLOKJOB).  SETTING
 STCLOK3		TC	MAKECADR	# SETTING DISPDEX POSITIVE KILLS IT.
-		TS	TBASE4		# RETURN SAVE (NOT FOR RESTARTS).
+		TS	TBASE4		# RETURN SAVE (NOT FOR RESTARTS)
 		EXTEND
 		DCA	TIG
 		DXCH	MPAC
 		EXTEND
 		DCS	TIME2
-# Page 744
-		DAS	MPAC		# HAVE TIG -- TIME2, UNDOUBTEDLY A + NUMBER
+## Page 744		
+		DAS	MPAC		# HAVE TIG - TIME2, UNDOUBTEDLY A + NUMBER
 		TC	TPAGREE		# POSITIVE, SINCE WE PASSED THE
-		CAF	1SEC		# 45 SECOND CHECK.
+		CAF	1SEC		# 45 SECOND CHECK
 		TS	Q
 		DXCH	MPAC
 		MASK	LOW5		# RESTRICT MAGNITUDE OF NUMBER IN A
@@ -726,7 +735,7 @@ CLOKJOB		EXTEND
 		DCS	TIG
 		DXCH	TTOGO
 		EXTEND
-# Page 745
+## Page 745		
 		DCA	TIME2
 		DAS	TTOGO
 		INHINT
@@ -734,24 +743,24 @@ CLOKJOB		EXTEND
 		TCF	ENDOFJOB	# TASK OR A HIGHER PRIORITY JOB SINCE THE
 		TCF	ENDOFJOB	# LAST CLOKTASK, AVOID USING IT AS AN
 		COM			# INDEX.
-		RELINT			# ***** DISPDEX MUST NEVER B -0 *****
+		RELINT			# ***** DISPDEX MUST NEVER BE -0 *****
 		INDEX	A
 		TCF	DISPNOT -1	# (-1 DUE TO EFFECT OF CCS)
 
 VB97DEX		=	OCT35		# NEGATIVE OF THIS IS PROPER FOR DISPDEX
 
  -35		CS	ZERO		# INDICATE VERB 97 PASTE
- 		TS	NVWORD1
-		CA	NVWORD 	+2	# NVWORD+2 CONTAINS V06 & APPROPRIATE NOUN
+		TS	NVWORD1
+		CA	NVWORD 	+2	# NVWROD+2 CONTAINS V06 & APPROPRIATE NOUN
 		TC	BANKCALL
 		CADR	CLOCPLAY
-		TCF	STOPCLOK	# TERMINATE CLOKTASK ON THE WAY TO POOH
+		TCF	STOPCLOK	# TERMINATE CLOKTASK ON THE WAY TO P00H
 		TCF	COMFAIL1
 		TCF	COMFAIL2
 
 					# THIS DISPLAY IS CALLED VIA ASTNCLOK
  -25		CAF	V06N61		# IT IS PRIMARILY USED BY THE CREW IN P63
- 		TC	BANKCALL	# TO RESET HIS EVENT TIMER TO AGREE WITH
+		TC	BANKCALL	# TO RESET HIS EVENT TIMER TO AGREE WITH
 		CADR	REFLASH		# TIG.
 		TCF	STOPCLOK
 		TCF	ASTNRETN
@@ -760,8 +769,7 @@ VB97DEX		=	OCT35		# NEGATIVE OF THIS IS PROPER FOR DISPDEX
 CNTDNDEX	=	LOW4		# OCT17:  NEGATIVE PROPER FOR DISPDEX
 
  -17		INDEX	WHICH		# THIS DISPLAY COMES UP AT ONE SECOND
-		# Was CAF --- RSB 2009
- 		CA	0		# INTERVALS.  IT IS NORMALLY OPERATED
+		CAF	0		# INTERVALS.  IT IS NORMALLY OPERATED
 		TC	BANKCALL	# BETWEEN TIG-30 SECONDS AND TIG-5 SECONDS
 		CADR	REGODSP		# REGODSP DOES ITS OWN TCF ENDOFJOB
 
@@ -770,21 +778,20 @@ VB99DEX		=	ELEVEN		# OCT13:  NEGATIVE PROPER FOR DISPDEX
 V99RECYC	EQUALS
 
  -13		CS	BIT9		# INDICATE VERB 99 PASTE
- 		TS	NVWORD1
+		TS	NVWORD1
 		INDEX	WHICH		# THIS IS THE "PLEASE ENABLE ENGINE"
-		# Was CAF --- RSB 2004
-		CA	0		# DISPLAY; IT IS INITIATED AT TIG-5 SEC.
-		TC	BANKCALL	# THE DISPLAY IS A V99NXX, WHERE XX IS
+		CAF	0		# DISPLAY; IT IS INITIATED AT TIG-5 SEC.
+		TC	BANKCALL	# THE DISPLAY IS A V99NXX, WHERE XX IS THE
 		CADR	CLOCPLAY	# NOUN THAT HAD PREVIOUSLY BEEN DISPLAYED
 		TCF	STOPCLOK	# TERMINATE GOTOPOOH TURNS OFF ULLAGE.
 		TCF	*PROCEED
 		TCF	*ENTER
 
-# Page 746
+## Page 746
 BLANKDEX	=	TWO		# NEGATIVE OF THIS IS PROPER FOR DISPDEX
 
  -2		TC	BANKCALL	# BLANK DSKY.  THE DSKY IS BLANKED FOR
- 		CADR	CLEANDSP	# 5 SECONDS AT TIG-35 TO INDICATE THAT
+		CADR	CLEANDSP	# 5 SECONDS AT TIG-35 TO INDICATE THAT
 DISPNOT		TCF	ENDOFJOB	# AVERAGE G IS STARTING.
 
 STOPCLOK	TC	NULLCLOK	# STOP CLOKTASK & TURN OFF ULLAGE ON THE
@@ -804,7 +811,7 @@ NULLCLOK	INHINT
 
 ASTNRETN	TC	PHASCHNG
 		OCT	04024
-		CAF	ZERO		# STOP DISPLAYING BUT KEEP RUNNING
+		CAF	ZERO		# STOP DISPLAYING BUT KEEP RUNNING.
 		TS	DISPDEX
 		CAF	PRIO13
 		TC	FINDVAC
@@ -827,7 +834,7 @@ GOPOST		CAF	PRIO12		# (3) MUST BE LOWER PRIORITY THAN CLOKJOB
 		EBANK=	TTOGO
 		2CADR	POSTBURN
 
-# Page 747
+## Page 747
 		INHINT			# SET UP THE DAP FOR COASTING FLIGHT.
 		TC	IBNKCALL
 		CADR	ALLCOAST
@@ -866,7 +873,7 @@ IGNITE		CS	FLAGWRD7	# (2)
 		TC	TWIDDLE
 		ADRES	IGNITION
 
-		CAF	OCT23		# IMMEDIATE RESTART AT IGNITION
+		CAF	OCT23		# IMMEDIATE RESTART AT IGNITION.
 		TS	L
 		COM
 		DXCH	-PHASE4
@@ -876,8 +883,8 @@ IGNITE1		CS	CNTDNDEX	# RESTORE OLD DISPLAY.
 
 		TCF	ENDOFJOB
 
-# Page 748
-#	********************************
+## Page 748
+#	****************************************
 
 P40ALM		TC	ALARM		# PROGRAM SELECTION NOT CONSISTENT WITH
 		OCT	1706		# VEHICLE CONFIGURATION
@@ -891,9 +898,9 @@ REP40ALM	CAF	V05N09		# (14)
 		TCF	REP40ALM	# V32E		REDISPLAY ALARM
 
 		INDEX	WHICH		# FOR P42, ALLOW CREW TO PROCEED EVEN
-		TCF	14		# THOUGH VEHICLE IS UNSTAGED.
+		TCF	14		# THOUGH VEHICLE IS UNSTAGED
 
-#	********************************
+#	****************************************
 
 		BANK	31
 		SETLOC	P40S2
@@ -911,12 +918,12 @@ P40A/P		TC	BANKCALL	# SUBROUTINE TO CHECK PGNCS CONTROL
 		MASK	FLGWRD10
 		CCS	A
 		TCF	GOBACK		# RETURN
-		CAF	BIT5		# YES, CHECK FOR AUTO-THROTTLE MODE
+		CAF	BIT5		# YES, CHECK FOR AUTOTHROTTLE MODE
 		EXTEND
 		RAND	CHAN30
 		EXTEND
-		BZF	GOBACK		# IN AUTO-THROTTLE MODE -- RETURN
-TURNITON	CAF	P40A/PMD	# DISPLAYS V50N25 R1=203 PLEASE PERFORM
+		BZF	GOBACK		# IN AUTOTHROTTLE MODE -- RETURN
+TURNITON	CAF	P40A/PMD	# DISPLAY V50N25 R1=203 PLEASE PERFORM
 		TC	BANKCALL	# CHECKLIST 203 TURN ON PGNCS ETC.
 		CADR	GOPERF1
 		TCF	GOTOPOOH	# V34E TERMINATE
@@ -926,16 +933,16 @@ GOBACK		CA	TEMPR60
 
 P40A/PMD	OCT	00203
 
-# Page 749
+## Page 749
 		BANK	36
 		SETLOC	P40S
 		BANK
 
 		COUNT*	$$/P40
 
-#	**********************************
+#	****************************************
 #	CONSTANTS FOR THE IGNITION ROUTINE
-#	**********************************
+#	****************************************
 
 SERVCADR	=	P63TABLE +7
 
@@ -963,26 +970,26 @@ OCT20		=	BIT5
 
 V06N61		VN	0661
 
-# Page 750
+## Page 750
 # KILLTASK
 # MOD NO:  NEW PROGRAM
 # MOD BY:  COVELLI
 #
 # FUNCTIONAL DESCRIPTION:
 #
-#	KILLTASK IS USED TO REMOVE A TASK FROM THE WAITLIST BY SUBSTITUTING A NULL TASK CALLED `NULLTASK' (OF COURSE),
+#	KILLTASK IS USED TO REMOVE A TASK FROM THE WAITLIST BY SUBSTITUTING A NULL TASK CALLED 'NULLTASK' (OF COURSE),
 #	WHICH MERELY DOES A TC TASKOVER.  IF THE SAME TASK IS SCHEDULED MORE THAN ONCE, ONLY THE ONE WHICH WILL OCCUR
 #	FIRST IS REMOVED.  IF THE TASK IS NOT SCHEDULED, KILLTASK TAKES NO ACTION AND RETURNS WITH NO ALARM.  KILLTASK
 #	LEAVES INTERRUPTS INHIBITED SO CALLER MUST RELINT
 #
-# CALLING SEQUENCE
-#	L	TC	KILLTASK	# IN FIXED-FIXED
-#	L+1	CADR	????????	# CADR (NOT 2CADR) OF TASK TO BE REMOVED.
-#	L+2	(RELINT)		# RETURN
+# CALLING SEQUENCE:
+#	L	TC	KILLTASK	IN FIXED-FIXED
+#	L+1	CADR	????????	CADR (NOT 2CADR) OF TASK TO BE REMOVED.
+#	L+2	(RELINT)		RETURN
 #
 # EXIT MODE:  AT L+2 OF CALLING SEQUENCE.
 #
-# ERASABLE INITIALIZATION:  NONE.
+# ERASABLE INITIALIZATION= NONE.
 #
 # OUTPUT:  2CADR OF NULLTASK IN LST2
 #
@@ -999,7 +1006,7 @@ KILLTASK	CA	KILLBB
 		INDEX	Q
 		CA	0		# GET CADR.
 		LXCH	BBANK
-		TCF	KILLTSK2	# CONTINUE IN SWITCHED FIXED.
+		TCF	KILLTSK2	# CONTINUE IN SWITCHED FIXED
 
 		EBANK=	LST2
 KILLBB		BBCON	KILLTSK2
@@ -1011,10 +1018,10 @@ KILLBB		BBCON	KILLTSK2
 		COUNT*	$$/KILL
 
 KILLTSK2	LXCH	ITEMP2		# SAVE CALLER'S BBANK
-# Page 751
+## Page 751
 		INCR	Q
 		EXTEND
-		QXCH	ITEMP1		# RETURN 2ADR IN ITEMP1,ITEMP2
+		QXCH	ITEMP1		# RETURN 2CADR IN ITEMP1,ITEMP2
 
 		TS	ITEMP3		# CADR IS IN A
 		MASK	LOW10
@@ -1034,7 +1041,7 @@ ADRSCAN		INDEX	L
 LETITLIV	CS	LSTLIM
 		AD	L
 		EXTEND			# ARE WE DONE?
-		BZF	DEAD		# YES -- DONE, SO RETURN
+		BZF	DEAD		# YES - DONE, SO RETURN
 		INCR	L
 		INCR	L
 		TCF	ADRSCAN		# CONTINUE LOOP.
@@ -1048,8 +1055,8 @@ TSTFBANK	CS	LOW10
 		EXTEND
 		SU	ITEMP3
 		EXTEND
-		BZF	KILLDEAD	# MATCH -- KILL IT.
-		TCF	LETITLIV	# NO MATCH -- CONTINUE.
+		BZF	KILLDEAD	# MATCH - KILL IT.
+		TCF	LETITLIV	# NO MATCH - CONTINUE.
 
 KILLDEAD	CA	TCTSKOVR
 		INDEX	L

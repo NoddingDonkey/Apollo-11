@@ -1,33 +1,46 @@
-# Copyright:    Public domain.
-# Filename:     STABLE_ORBIT.agc
-# Purpose:      Part of the source code for Colossus 2A, AKA Comanche 055.
-#               It is part of the source code for the Command Module's (CM)
-#               Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:    yaYUL
-# Contact:      Hartmuth Gutsche <hgutsche@xplornet.com>.
-# Website:      www.ibiblio.org/apollo.
-# Pages:	525-532
-# Mod history:  2009-05-10 HG    Started adapting from the Colossus249/ file
-#                of the same name, using Comanche055 page
-#                images 0525.jpg - 0532.jpg.
-#
-# This source code has been transcribed or otherwise adapted from digitized
-# images of a hardcopy from the MIT Museum.  The digitization was performed
-# by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
-# thanks to both.  The images (with suitable reduction in storage size and
-# consequent reduction in image quality as well) are available online at
-# www.ibiblio.org/apollo.  If for some reason you find that the images are
-# illegible, contact me at info@sandroid.org about getting access to the
-# (much) higher-quality images which Paul actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#    Assemble revision 055 of AGC program Comanche by NASA
-#    2021113-051.  10:28 APR. 1, 1969
-#
-#    This AGC program shall also be referred to as
-#            Colossus 2A
-# Page 525
+### FILE="Main.annotation"
+## Copyright:   Public domain.
+## Filename:    STABLE_ORBIT_-_P38-P39.agc
+## Purpose:     Part of the source code for Colossus 2A, AKA Comanche 055.
+##              It is part of the source code for the Command Module's (CM)
+##              Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:   yaYUL
+## Contact:     Hartmuth Gutsche <hgutsche@xplornet.com>.
+## Website:     www.ibiblio.org/apollo.
+## Pages:	525-532
+## Mod history: 2009-05-10 HG   Started adapting from the Colossus249/ file
+##                		of the same name, using Comanche055 page
+##                		images 0525.jpg - 0532.jpg.
+##		2010-08-20 JL	Fixed page number comment (p531).
+##		2016-12-10 RSB	Proofed comments with octopus/ProoferComments
+##				and fixed the errors found.
+##		2016-12-10 RSB	All of the GOTOPOOH's should have been
+##				GOTOPOOH, and I've changed them back.
+##		2017-01-19 RSB	Renamed from STABLE_ORBIT.agc to agree with 
+##				the actual name from the log section, and with
+##				the naming in Colossus 237.
+##		2017-01-18 RSB	Fixed comment-text errors noted while diff'ing
+##				vs Colossus 249.
+##		2017-03-17 RSB	Comment-text fixes identified in diff'ing
+##				Luminary 99 vs Comanche 55.
+
+## This source code has been transcribed or otherwise adapted from digitized
+## images of a hardcopy from the MIT Museum.  The digitization was performed
+## by Paul Fjeld, and arranged for by Deborah Douglas of the Museum.  Many
+## thanks to both.  The images (with suitable reduction in storage size and
+## consequent reduction in image quality as well) are available online at
+## www.ibiblio.org/apollo.  If for some reason you find that the images are
+## illegible, contact me at info@sandroid.org about getting access to the 
+## (much) higher-quality images which Paul actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##    Assemble revision 055 of AGC program Comanche by NASA
+##    2021113-051.  10:28 APR. 1, 1969  
+##
+##    This AGC program shall also be referred to as
+##            Colossus 2A
+## Page 525
 # STABLE ORBIT RENDEZVOUS PROGRAMS (P38 AND P78)
 #
 # MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
@@ -78,14 +91,14 @@
 #	(1)  TRKMKCNT	NUMBER OF MARKS
 #	(2)  TTOGO	TIME TO GO
 #	(3)  +MGA	MIDDLE GIMBAL ANGLE
-# Page 526
+## Page 526
 #	(4)  DSPTEM1	TIME OF INTERCEPT OF PASSIVE VEHICLE ORBIT
 #			(FOR SOI ONLY)
 #	(5)  POSTTPI	PERIGEE ALTITUDE OF ACTIVE VEHICLE ORBIT AFTER
 #			THE SOI (SOR) MANEUVER
 #	(6)  DELVTPI	MAGNITUDE OF DELTA V AT SOI (SOR) TIME
 #	(7)  DELVTPF	MAGNITUDE OF DELTA V AT INTERCEPT TIME
-#	(8)  DELVLVC	DELTA VELOCITY AT SOI (AND SOR) - LOCAL VERTICAL
+#	(8)  DELVLVC 	DELTA VELOCITY AT SOI (AND SOR) - LOCAL VERTICAL
 #			COORDINATES
 #
 # SUBROUTINES USED
@@ -106,10 +119,10 @@
 		BANK	04
 		SETLOC	STBLEORB
 		BANK
-
+		
 		EBANK=	SUBEXIT
 		COUNT*	$$/P3879
-
+		
 P38		TC	AVFLAGA         # THIS VEHICLE ACTIVE
 		TC      +2
 P78		TC	AVFLAGP         # OTHER VEHICLE ACTIVE
@@ -129,8 +142,8 @@ P78		TC	AVFLAGP         # OTHER VEHICLE ACTIVE
 		TS	OPTION1
 		CAF	ONE
 		TS	OPTION2		# OPTION CODE IS SET TO 1
-# Page 527
-		CAF	V04N06SR	# DISPLAY OPTION CODE - 1 = SOI, 2 = SOR
+## Page 527
+		CAF	V04N06SR	# DISPLAY OPTION CODE -1 = SOI, 2 = SOR
 		TCR	BANKCALL
 		CADR	GOFLASHR
 		TCF	GOTOPOOH	# TERMINATE
@@ -180,13 +193,13 @@ JUNCTN1		CLEAR	CALL
 			SELECTMU	# SELECT MU, CLEAR FINALFLG, GO TO VN1645
 RECYCLE		CALL
 			PREC/TT
-# Page 528
+## Page 528
 		BOFF	DLOAD
 			OPTNSW
 			OPTN2
 			TINT
 		STCALL	TDEC1		# PRECISION UPDATE PASSIVE VEHICLE TO
-			INTRPVP		#	INTERCEPT TIME
+			INTRPVP		# INTERCEPT TIME
 		VLOAD	UNIT
 			RATT		# RP/(RP)
 		PDVL	VXV
@@ -207,8 +220,9 @@ JUNCTN2		DLOAD	DSU
 			TINT
 			DELTTIME
 		STORE	TARGTIME	# TT = TI - DELTA T
-
+		
 # .... MAINRTNE ....
+#
 # SUBROUTINES USED
 #
 #	S3435.25
@@ -232,7 +246,7 @@ MAINRTNE	STCALL	TDEC1		# PRECISION UPDATE PASSIVE VEHICLE TO
 		CALL
 			S3435.25
 TEST3979	BOFF	BON
-# Page 529
+## Page 529
 			P39/79SW
 			MAINRTN1
 			FINALFLG
@@ -274,17 +288,17 @@ DSPLY81		CAF	V06N81SR	# DISPLAY DELTA V (LV)
 			P39/79SW
 			P39/P79B
 			RECYCLE
-
+			
 # STABLE ORBIT MIDCOURSE PROGRAM (P39 AND P79)
 #
 # MOD NO -1		LOG SECTION - STABLE ORBIT - P38-P39
-# MOD BY RUDNICKI, S	DATE 25JAN68
+# MOD BY RUDNICKI.S	DATE 25JAN68
 #
 # FUNCTIONAL DESCRIPTION
 #
 #	P39 AND P79 CALCULATE THE REQUIRED DELTA V AND OTHER INITIAL
 #	CONDITIONS REQUIRED BY THE AGC TO MAKE A MIDCOURSE CORRECTION
-# Page 530
+## Page 530
 #	MANEUVER AFTER COMPLETING THE SOI MANEUVER BUT BEFORE MAKING
 #	THE SOR MANEUVER
 #
@@ -335,16 +349,17 @@ P39/P79B	RTB	DAD
 			LOADTIME
 			KT
 		STORE	TIG		# TIG = T (PRESENT) + PREPARATION TIME
-# Page531
+## Page 531
 		STCALL	TDEC1		# PRECISION UPDATE ACTIVE AND PASSIVE
-			PRECSET		#	VEHICLES TO TIG
+			PRECSET		# 	VEHICLES TO TIG
 		CALL
 			S34/35.1	# GET UNIT NORMAL
 		DLOAD	GOTO
 			TARGTIME
 			MAINRTNE	# CALCULATE DELTA V AND DELTA V (LV)
-
+			
 # .... PREC/TT ....
+#
 # SUBROUTINES USED
 #
 #	PRECSET
@@ -376,7 +391,9 @@ PREC/TT		STQ	DLOAD
 		DLOAD	GOTO
 			T
 			RTRN
+			
 # .... INTRPVP ....
+#
 # SUBROUTINES USED
 #
 #	CSMPREC
@@ -387,7 +404,7 @@ INTRPVP		STQ	BOFF		# PRECISION UPDATE PASSIVE VEHICLE TO
 			AVFLAG
 			OTHERV
 		CALL
-# Page 532
+## Page 532
 			CSMPREC
 		GOTO
 			RTRN
@@ -395,7 +412,9 @@ OTHERV		CALL
 			LEMPREC
 		GOTO
 			RTRN
+			
 # .... VNDSPLY ....
+#
 # SUBROUTINES USED
 #
 #	BANKCALL
@@ -419,4 +438,3 @@ V06N34SR	VN	0634
 V06N58SR	VN	0658
 V06N81SR	VN	0681
 
-# *** END OF COMEKISS.020 ***

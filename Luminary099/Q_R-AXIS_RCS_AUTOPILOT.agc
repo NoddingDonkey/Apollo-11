@@ -1,34 +1,42 @@
-# Copyright:	Public domain.
-# Filename:	Q_R-AXIS_RCS_AUTOPILOT.agc
-# Purpose: 	Part of the source code for Luminary 1A build 099.
-#		It is part of the source code for the Lunar Module's (LM)
-#		Apollo Guidance Computer (AGC), for Apollo 11.
-# Assembler:	yaYUL
-# Contact:	Ron Burkey <info@sandroid.org>.
-# Website:	www.ibiblio.org/apollo.
-# Pages:	1442-1459
-# Mod history:	2009-05-27 RSB	Adapted from the corresponding
-#				Luminary131 file, using page
-#				images from Luminary 1A.
-#		2009-06-07 RSB	Corrected "DEC 96.0" to "DEC 96", since
-#				the former is not compatible with yaYUL.
-#
-# This source code has been transcribed or otherwise adapted from
-# digitized images of a hardcopy from the MIT Museum.  The digitization
-# was performed by Paul Fjeld, and arranged for by Deborah Douglas of
-# the Museum.  Many thanks to both.  The images (with suitable reduction
-# in storage size and consequent reduction in image quality as well) are
-# available online at www.ibiblio.org/apollo.  If for some reason you
-# find that the images are illegible, contact me at info@sandroid.org
-# about getting access to the (much) higher-quality images which Paul
-# actually created.
-#
-# Notations on the hardcopy document read, in part:
-#
-#	Assemble revision 001 of AGC program LMY99 by NASA 2021112-061
-#	16:27 JULY 14, 1969
+### FILE="Main.annotation"
+## Copyright:	Public domain.
+## Filename:	Q_R-AXIS_RCS_AUTOPILOT.agc
+## Purpose: 	Part of the source code for Luminary 1A build 099.
+##		It is part of the source code for the Lunar Module's (LM)
+##		Apollo Guidance Computer (AGC), for Apollo 11.
+## Assembler:	yaYUL
+## Contact:	Ron Burkey <info@sandroid.org>.
+## Website:	www.ibiblio.org/apollo.
+## Pages:	1442-1459
+## Mod history:	2009-05-27 RSB	Adapted from the corresponding 
+##				Luminary131 file, using page 
+##				images from Luminary 1A.
+##		2009-06-07 RSB	Corrected "DEC 96.0" to "DEC 96", since
+##				the former is not compatible with yaYUL.
+##		2011-01-06 JL	Fixed pseudo-label indentation.
+##		2016-12-18 RSB	Proofed text comments with octopus/ProoferComments
+##				and corrected the errors found.
+##		2017-03-16 RSB	Comment-text fixes identified in 5-way
+##				side-by-side diff of Luminary 69/99/116/131/210.
+##		2017-08-29 MAS	Fixed a label (X0RULGE instead of XORULGE) and a
+##				comment text error found while transcribing Zerlina 56.
 
-# Page 1442
+## This source code has been transcribed or otherwise adapted from
+## digitized images of a hardcopy from the MIT Museum.  The digitization
+## was performed by Paul Fjeld, and arranged for by Deborah Douglas of
+## the Museum.  Many thanks to both.  The images (with suitable reduction
+## in storage size and consequent reduction in image quality as well) are
+## available online at www.ibiblio.org/apollo.  If for some reason you
+## find that the images are illegible, contact me at info@sandroid.org
+## about getting access to the (much) higher-quality images which Paul
+## actually created.
+##
+## Notations on the hardcopy document read, in part:
+##
+##	Assemble revision 001 of AGC program LMY99 by NASA 2021112-61
+##	16:27 JULY 14, 1969 
+
+## Page 1442
 		BANK	17
 		SETLOC	DAPS2
 		BANK
@@ -58,7 +66,7 @@ RCS		CAF	ZERO		#	RCS (TRYGTS MAY BRANCH TO HERE)
 		TC	ROT-TOUV
 		DXCH	OMEGAU
 
-# X - TRANSLATION
+# X - TRANSLATION:
 #
 # INPUT:	BITS 7,8 OF CH31 (TRANSLATION CONTROLLER)
 #		ULLAGER
@@ -75,8 +83,8 @@ SENSEGET	CA	BIT7		# INPUT BITS OVERRIDE THE INTERNAL BITS
 		EXTEND			# SENSETYP WILL NOT OPPOSE ANYTRANS
 		RAND	CHAN31
 		EXTEND
-		BZF	+X0RULGE
-# Page 1443
+		BZF	+XORULGE
+## Page 1443
 		CA	BIT8
 		EXTEND
 		RAND	CHAN31
@@ -86,7 +94,7 @@ SENSEGET	CA	BIT7		# INPUT BITS OVERRIDE THE INTERNAL BITS
 		CA	ULLAGER
 		MASK	DAPBOOLS
 		CCS	A
-		TCF	+X0RULGE
+		TCF	+XORULGE
 
 		TS	NEXTU		# STORE NULL TRANSLATION POLICIES
 		TS	NEXTV
@@ -101,7 +109,7 @@ SENSEGET	CA	BIT7		# INPUT BITS OVERRIDE THE INTERNAL BITS
 TSENSE		TS	SENSETYP
 		TCF	QRCONTRL
 
-+X0RULGE	CAF	ONE
++XORULGE	CAF	ONE
 -XTRANS		AD	FOUR
 		TS	ROTINDEX
 		AD	NEG3
@@ -127,7 +135,7 @@ TSNUMBRT	TS	NUMBERT
 		CA	00314OCT
 		MASK	POLYTEMP
 TSNEXTS		TS	NEXTU
-# Page 1444
+## Page 1444
 		CS	00314OCT
 		MASK	POLYTEMP
 		TS	NEXTV
@@ -176,7 +184,7 @@ FIREQR		CA	TEMP31
 
 		CA	TEMP31
 		MASK	BIT5
-# Page 1445
+## Page 1445
 		EXTEND
 		BZF	+RMIN
 
@@ -227,10 +235,10 @@ MIMRET		CA	DAPBOOLS
 		CA	ONE
 		AD	TWO
 		TS	NUMBERT
-# Page 1446
+## Page 1446
 		TCF	AFTERTJ
 
-60MS		DEC	96		# RSB 2009 -- was 96.0.
+60MS		DEC	96.0
 MINADR		GENADR	MINRTN
 OCT63		OCT	63
 14MS		=	+TJMINT6
@@ -261,14 +269,14 @@ CHEKSTIK	TS	INGTS		# NOT IN GTS WHEN IN ATT HOLD
 1/10S		OCT	1
 LINRAT		DEC	46
 
-# ===========================================================
+# ================================
 
 DAMPING		CA	ZERO
 		TS	SAVEHAND
 		TS	SAVEHAND +1
-RHCACTIV	CCS	SAVEHAND	# ******************
+RHCACTIV	CCS	SAVEHAND	# *******************
 		TCF	+3		# Q,R MANUAL CONTROL	WC = A*(B+|D|)*D
-		TCF	+2		# ******************
+		TCF	+2		# *******************
 		TCF	+1
 		DOUBLE			# WHERE
 		DOUBLE			#
@@ -278,9 +286,9 @@ RHCACTIV	CCS	SAVEHAND	# ******************
 		CA	L		#	|D| = ABS. VALUE OF DEFLECTION
 		EXTEND			#	D   = HAND CONTROLLER DEFLECTION
 		MP	STIKSENS
-		XCH	QLAST		# COMMAND Q RATE, SCALED 45 DEG/SEC
+		XCH	QLAST		# COMMAND Q RATE     SCALED 45 DEG/SEC
 		COM
-# Page 1447
+## Page 1447
 		AD	QLAST
 		TS	DAPTEMP3
 		CCS	SAVEHAND +1
@@ -331,9 +339,9 @@ ENTERQR		DXCH	QRATEDIF	# TRANSFORM RATES FROM Q,R TO U,V AXES
 		TCF	ENTERUV		# CONTINUE DIRECT RATE CONTROL.
 		TCF	STILLRCS	# PSEUDO-AUTO CONTROL.
 		CA	40CYCL
-# Page 1448
+## Page 1448
 		TS	TCQR
-ENTERUV		INHINT			# DIRECT RATE CONTROL
+ENTERUV		INHINT			# DIRECT RATE CONTROL.
 		TC	IBNKCALL
 		FCADR	ZATTEROR
 		RELINT
@@ -383,7 +391,7 @@ TOPSEUDO	CS	QRBIT
 		TS	RETJADR
 		CA	ONE
 
-# Page 1449
+## Page 1449
 BACKHAND	TS	AXISCTR
 
 		CA	FOUR
@@ -398,7 +406,7 @@ BACKHAND	TS	AXISCTR
 		TCF	LOOPER
 
 		INDEX	AXISCTR
-		CCS	URATEDIF	#	INDEX	AXIS	QUANTITY
+		CCS	URATEDIF	#	INDEX	AXIS	QUANITY
 		CA	ZERO		#	0	-U	1/JETACC-AOSU
 		TCF	+2		#	1	+U	1/JETACC+AOSU
 		CA	ONE		#	16	-V	1/JETACC-AOSV
@@ -408,8 +416,8 @@ BACKHAND	TS	AXISCTR
 		INDEX	A
 		CS	1/ANET2 +1
 		EXTEND
-		INDEX	AXISCTR		# UPRATEDIF IS SCALED AT PI/4 RAD/SEC
-		MP	URATEDIF	# JET TIME IN A, SCALED 32 SEC
+		INDEX	AXISCTR		# URATEDIF IS SCALED AT PI/4 RAD/SEC
+		MP	URATEDIF	# JET TIME IN A       SCALED 32 SEC
 		TS	Q
 		DAS	A
 		AD	Q
@@ -431,11 +439,11 @@ HANDADR		GENADR	BACKHAND
 #	3. JETS ARE OFF (Q,R-AXES)
 
 TRYGTS		CAF	USEQRJTS	# IS JET USE MANDATORY.		(AS LONG AS
-		MASK	DAPBOOLS	# USEQRJTS BIT IS NOT BIT 15, CCS IS SAFE.)
+		MASK	DAPBOOLS	# USEQRJTS BIT IS NOT BIT 15, CCS IS SAFE)
 		CCS	A
 		TCF	RCS
 		CCS	ALLOWGTS	# NO.  DOES AOSTASK OK CONTROL FOR GTS?
-# Page 1450
+## Page 1450
 		TCF	+2
 		TCF	RCS
 		EXTEND
@@ -448,7 +456,7 @@ GOTOGTS		EXTEND
 
 CHKINGTS	CCS	INGTS		# WAS THE TRIM GIMBAL CONTROLLING
 		TCF	+2		#	YES.  SET UP A DAMPED NULLING DRIVE.
-		TCF	RCS		#	NO.  NULLING WAS SET UP BEFORE.  DO RCS.
+		TCF	RCS		#	NO.  NULLING WAS SET UP BEFORE.  DO RCS
 		INHINT
 		TC	IBNKCALL
 		CADR	TIMEGMBL
@@ -460,12 +468,12 @@ CHKINGTS	CCS	INGTS		# WAS THE TRIM GIMBAL CONTROLLING
 		EBANK=	CDUXD
 GTSCADR		2CADR	GTS
 
-# Page 1451
+## Page 1451
 # SUBROUTINE TO COMPUTE Q,R-AXES ATTITUDE ERRORS FOR USE IN THE RCS AND GTS CONTROL LAWS AND THE DISPLAYS.
 
 QERRCALC	CAE	CDUY		# Q-ERROR CALCULATION
 		EXTEND
-		MSU	CDUYD		# CDU ANGLE -- ANGLE DESIRED (Y-AXIS)
+		MSU	CDUYD		# CDU ANGLE - ANGLE DESIRED (Y-AXIS)
 		TS	DAPTEMP1	# SAVE FOR RERRCALC
 		EXTEND
 		MP	M21		# (CDUY-CDUYD)*M21 SCALED AT PI RADIANS
@@ -492,7 +500,7 @@ RERRCALC	CAE	DAPTEMP1	# R-ERROR CALCULATION:
 		XCH	RERROR		# SAVE R-ERROR FOR EIGHT-BALL DISPLAY.
 		TC	Q
 
-# Page 1452
+## Page 1452
 # "ATTSTEER" IS THE ENTRY POINT FOR Q,R-AXES (U,V-AXES) ATTITUDE CONTROL USING THE REACTION CONTROL SYSTEM
 
 ATTSTEER	EQUALS	STILLRCS	# "STILLRCS" IS THE RCS EXIT FROM TRYGTS.
@@ -544,14 +552,14 @@ TJLAW		CA	TJLAWADR
 #
 # INPUT:	AXISCTR		0,1 FOR U,V
 #		SNUFFBIT	ZERO TJETU,V AND TRANS. ONLY IF SET IN A DPS BURN
-# Page 1453
+## Page 1453
 #		TJU,TJV		JET TIME SCALED 10.24 SEC.
 #		NUMBERT		INDICATES NUMBER OF JETS AND TYPE OF POLICY
 #		RETJADR		WHERE TO RETURN TO
 #
 # OUTPUT:	NO.U(V)JETS	RATE DERIVATION FEEDBACK
 #		CHANNEL 5
-#		SKIPU,SKIPV	FOR LESS THAN 150MS FIRING
+#		SKIPU,SKIRV	FOR LESS THAN 150MS FIRING
 #
 # NOTES:	IN CASE OF FAILURE IN DESIRED ROTATION POLICY, "ALL" UNFAILED
 #		JETS OF THE DESIRED POLICY ARE SELECTED.  SINCE THERE ARE ONLY
@@ -588,13 +596,13 @@ DOROTAT		CAF	TWO
 
 		CA	AXISCTR
 		AD	L
-		TS	ROTINDEX	# 0 1 2 3 = -U -V +U +V
+		TS	ROTINDEX	# 0 1 2 3 = -U -V -+U +V
 
 		CA	ABSTJ
 		AD	-150MS
 		EXTEND
 		BZMF	DOSKIP
-# Page 1454
+## Page 1454
 		TC	SELCTSUB
 
 		INDEX	AXISCTR
@@ -645,7 +653,7 @@ NOTMIN		TC	SELCTSUB
 		INDEX	AXISCTR
 		CA	INDEXES
 		INHINT
-# Page 1455
+## Page 1455
 		TS	T6FURTHA +1
 		CA	POLYTEMP
 		INDEX	T6FURTHA +1
@@ -696,7 +704,7 @@ XTRANS		CA	ZERO
 INDEXES		DEC	4
 		DEC	13
 +TJMINT6	DEC	22
-# Page 1456
+## Page 1456
 -150MS		DEC	-240
 BIT8,9		OCT	00600
 SCLNORM		OCT	266
@@ -706,20 +714,20 @@ TJLAWADR	GENADR	TJLAW 	+3	# RETURN ADDRESS FOR RCS ATTITUDE CONTROL
 # THIS IS A WAITLIST FOR T6RUPTS.
 #
 # CALLED BY:
-#		CA	TJ		# TIME WHEN NEXT JETS WILL BE WRITTEN
+#		CA	TJ		TIME WHEN NEXT JETS WILL BE WRITTEN
 #		TS	T6FURTHA
-#		CA	INDEX		# AXIS TO BE WRITTEN AT TJ (FROM NOW)
+#		CA	INDEX		AXIS TO BE WIRTTEN AT TJ (FROM NOW)
 #		TS	T6FURTHA +1
 #		TC	JTLST
 #
-# EXAMPLE -- U-AXIS AUTOPILOT WILL WRITE ITS ROTATION CODE OF
+# EXAMPLE - U-AXIS AUTOPILOT WILL WRITE ITS ROTATION CODE OF
 # JETS INTO CHANNEL 5.  IF IT DESIRES TO TURN OFF THIS POLICY WITHIN
 # 150MS AND THEN FIRE NEXTU, A CALL TO JTLST IS MADE WITH T6FURTHA
 # CONTAINING THE TIME TO TURN OFF THE POLICY, T6FURTHA +1 THE INDEX
 # OF THE U-AXIS(4), AND NEXTU WILL CONTAIN THE "U-TRANS" POLICY OR ZERO.
 #
-# THE LIST IS EXACTLY 3 LONG.  (THIS LEADS UP TO SKIP LOGIC AND 150MS LIMIT)
-# THE INPUT IS THE LAST MEMBER OF THE LIST.
+# THE LIST IS EXACTLY 3 LONG.  (THIS LEADS TO SKIP LOGIC AND 150MS LIMIT)
+# THE INPUT IS THE LAST MEMBER OF THE LIST
 #
 # RETURNS BY:
 #	+	TC	Q
@@ -728,14 +736,14 @@ TJLAWADR	GENADR	TJLAW 	+3	# RETURN ADDRESS FOR RCS ATTITUDE CONTROL
 #	TIME6		TIME OF NEXT RUPT
 #	T6NEXT		DELTA TIME TO NEXT RUPT
 #	T6FURTHA	DELTA TIME FROM 2ND TO LAST RUPT
-#	NXT6ADR		AXIS INDEX	0 -- P-AXIS
-#	T6NEXT +1	AXIS INDEX	4 -- U-AXIS
-#	T6FURTHA +1	AXIS INDEX	13 -- V-AXIS
+#	NXT6ADR		AXIS INDEX	 Q - P-AXIS
+#	T6NEXT +1	AXIS INDEX	 4 - U-AXIS
+#	T6FURTHA +1	AXIS INDEX	13 - V-AXIS
 
 JTLST		CS	T6FURTHA
 		AD	TIME6
 		EXTEND
-		BZMF	MIDORLST	# TIME6 -- TI IS IN A
+		BZMF	MIDORLST	# TIME6 - T IS IN A
 
 		LXCH	NXT6ADR
 		DXCH	T6NEXT
@@ -747,8 +755,8 @@ TURNON		CA	BIT15
 		EXTEND
 		WOR	CHAN13
 		TC	Q
-
-# Page 1457
+		
+## Page 1457
 MIDORLST	AD	T6NEXT
 		EXTEND
 		BZMF	LASTCHG		# TIME6 + T6NEXT - T IS IN A
@@ -798,7 +806,7 @@ SELCTSUB	INDEX	ROTINDEX
 		INDEX	NUMBERT
 		MASK	TYPEPOLY
 		TS	POLYTEMP
-# Page 1458
+## Page 1458
 		MASK	CH5MASK
 		CCS	A
 		TCF	+2
@@ -848,7 +856,7 @@ ENDJASK		DXCH	DAPARUPT
 		DXCH	DAPZRUPT
 		DXCH	ZRUPT
 		TCF	NOQRSM
-# Page 1459
+## Page 1459		
 		BLOCK	3
 		SETLOC	FFTAG6
 		BANK
@@ -857,4 +865,4 @@ ENDJASK		DXCH	DAPARUPT
 
 MAKERUPT	EXTEND
 		EDRUPT	MAKERUPT
-
+		
